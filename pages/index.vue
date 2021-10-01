@@ -1,10 +1,10 @@
 <template>
-  <div>
-  <v-row justify="center" align="center">
+  <div justify="center" align="center">
+  <v-row justify="center" align="center" style="width: 80%">
     <v-col cols="4" sm="12" md="4">
         <v-card elevation="2">
         
-        <v-card-text class="justify-center">
+        <v-card-text>
           <v-img class="center" height="200" width="200" aspect-ratio="16/9" contain src="images/dstv.jpeg"></v-img>
           Invite 5 People to buy ksh.100 airtel airtime and Earn 40/=
         </v-card-text>

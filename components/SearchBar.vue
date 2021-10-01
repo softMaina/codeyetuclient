@@ -1,18 +1,12 @@
 <template>
      <v-text-field
      width="50%"
-     color="red"
      rounded
-     height="45"
+     height="65"
      background-color="white"
      label="Which brand are you looking for?"
+     append-icon="mdi-magnify"
      >
-    <v-icon
-      slot="append"
-      color="grey"
-    >
-      mdi-magnify
-    </v-icon>
   </v-text-field>    
 </template>
 

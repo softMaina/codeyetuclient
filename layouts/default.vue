@@ -1,22 +1,24 @@
 <template>
   <v-app>
-    <v-container fluid class="hero">
+    <v-img src="images/background.jpg" cover height="230">
+    <v-container fluid>
     <v-toolbar
     elevation="0"
     color="transparent"
     >
-    <v-row>
-      <v-col cols="2">
+    <v-container style=" width: 80%">
+    <v-row justify="center" align="center">
+      <v-col class="" cols="2">
         <v-img src="images/logo.jpg"></v-img>
       </v-col>
-      <v-col cols="8" justify="center" align="center">
+      <v-col class="" cols="8" justify="center" align="center">
           <ul id="menu">
             <li class="white--text font-weight-medium mb-2">Brands</li>
-            <li class="white--text font-weight-medium mb-2" >Referrer</li>
-            <li class="white--text font-weight-medium mb-2" >Support</li>
+            <li class="white--text font-weight-medium mb-2">Referrer</li>
+            <li class="white--text font-weight-medium mb-2">Support</li>
           </ul> 
       </v-col>
-       <v-col cols="2">
+       <v-col class="" cols="2" justify="end" align="end">
          <v-btn rounded>
            <v-icon>
              mdi-menu
@@ -27,7 +29,8 @@
          </v-btn>
        </v-col>
     </v-row>
-     
+    </v-container>
+  
     </v-toolbar>
     <v-toolbar elevation="0" color="transparent">
       
@@ -40,6 +43,8 @@
   
     </v-toolbar>
     </v-container>
+    </v-img>
+     
     <v-main>
       <v-container>
         <Nuxt />
@@ -109,9 +114,7 @@ export default {
 <style scoped>
 
 .hero {
-  background: url('./static/images/background.jpeg');
-  background-size: fill;
-  height: 15vh;
+  background: url(static/images/background.jpg);       
  }
  ul#menu li {
    padding: 30px;
