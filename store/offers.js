@@ -30,7 +30,7 @@ export const mutations = {
 
 export const actions = {
     async fetchOffers({commit, dispatch}) {
-        await this.$axios.get('http://192.168.100.6:5000/api/offers').then((res)=>{
+        await this.$axios.get('http://34.93.90.55/api/offers').then((res)=>{
             commit({
                 type: 'setOffers',
                 offers: res.data
@@ -39,7 +39,7 @@ export const actions = {
     },
 
     async fetchReferals({commit, dispatch}) {
-        await this.$axios.get('http://192.168.100.6:5000/api/referrals').then((res)=>{
+        await this.$axios.get('http://34.93.90.55/api/referrals').then((res)=>{
             commit({
                 type: 'setReferrals',
                 offers: res.data
@@ -48,7 +48,7 @@ export const actions = {
     },
 
     async fetchBrands({commit, dispatch}) {
-        await this.$axios.get('http://192.168.100.6:5000/api/brands').then((res)=>{
+        await this.$axios.get('http://34.93.90.55/api/brands').then((res)=>{
             commit({
                 type: 'setBrands',
                 offers: res.data
@@ -57,7 +57,7 @@ export const actions = {
     },
 
     async referPersons({commit, dispatch}, data){
-        await this.$axios.post('http://192.168.100.6:5000/api/referrals',data).then((res)=>{
+        await this.$axios.post('http://34.93.90.55/api/referrals',data).then((res)=>{
                 console.log('referrals sent');
         })
     }
