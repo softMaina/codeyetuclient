@@ -1,143 +1,10 @@
 <template>
   <div justify="center" align="center">
   <v-row justify="center" align="center" style="width: 80%">
-    <v-col cols="4" sm="12" md="4">
-        <v-card elevation="2">
-        
-        <v-card-text>
-          <v-img class="center" height="200" width="200" aspect-ratio="16/9" contain src="images/dstv.jpeg"></v-img>
-          Invite 5 People to buy ksh.100 airtel airtime and Earn 40/=
-        </v-card-text>
-        <v-card-actions  class="justify-center" justify="center" align="center">
-          <v-dialog
-      v-model="dialog"
-      width="500"
-    >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="red"
-          class="white--text"
-          v-bind="attrs"
-          v-on="on"
-        >
-          GET KS. 40/=
-        </v-btn>
-      </template>
-
-      <v-card>
-        <v-card-title class="text-h5 grey lighten-2">
-          Refer User
-        </v-card-title>
-
-        <v-card-text>
-          <v-text-field
-            name="email"
-            label="user email"
-            id="id"
-          ></v-text-field>
-        </v-card-text>
-
-        <v-divider></v-divider>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            text
-            @click="dialog = false"
-          >
-            Submit
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-        </v-card-actions>
-      </v-card>
+    <v-col cols="4" v-for="offer in offers" :key="offer.offer_id">
+        <ProductCard :caption=offer.caption :logo=offer.brand.logo :reward=getreward(offer) :refer="refer" />
     </v-col>
-
-
-      <v-col cols="4" sm="12" md="4">
-        <v-card elevation="2">
-        
-        <v-card-text class="justify-center">
-          <v-img class="center" height="200" width="200" aspect-ratio="16/9" contain src="images/cocacola.jpeg"></v-img>
-          Invite 5 People to buy ksh.100 airtel airtime and Earn 40/=
-        </v-card-text>
-        <v-card-actions  class="justify-center" justify="center" align="center">
-          <v-btn color="red" class="white--text">
-          GET KS. 40/=
-      </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-
-
-       <v-col cols="4" sm="12" md="4">
-        <v-card elevation="2">
-        
-        <v-card-text class="justify-center">
-          <v-img class="center" height="200" width="200" aspect-ratio="16/9" contain src="images/naivas.jpeg"></v-img>
-          Invite 5 People to buy ksh.100 airtel airtime and Earn 40/=
-        </v-card-text>
-        <v-card-actions  class="justify-center" justify="center" align="center">
-          <v-btn color="red" class="white--text">
-          GET KS. 40/=
-      </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-
-
-
-       <v-col cols="4" sm="12" md="4">
-        <v-card elevation="2">
-        
-        <v-card-text class="justify-center">
-          <v-img class="center" height="200" width="200" aspect-ratio="16/9" contain src="images/gotv.jpeg"></v-img>
-          Invite 5 People to buy ksh.100 airtel airtime and Earn 40/=
-        </v-card-text>
-        <v-card-actions  class="justify-center" justify="center" align="center">
-          <v-btn color="red" class="white--text">
-          GET KS. 40/=
-      </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-
-
-
-       <v-col cols="4" sm="12" md="4">
-        <v-card elevation="2">
-        
-        <v-card-text class="justify-center">
-          <v-img class="center" height="200" width="200" aspect-ratio="16/9" contain src="images/mpesa.jpeg"></v-img>
-          Invite 5 People to buy ksh.100 airtel airtime and Earn 40/=
-        </v-card-text>
-        <v-card-actions  class="justify-center" justify="center" align="center">
-          <v-btn color="red" class="white--text">
-          GET KS. 40/=
-      </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-
-
-
-       <v-col cols="4" sm="12" md="4">
-        <v-card elevation="2">
-        
-        <v-card-text class="justify-center">
-          <v-img class="center" height="200" width="200" aspect-ratio="16/9" contain src="images/airtel.jpeg"></v-img>
-          Invite 5 People to buy ksh.100 airtel airtime and Earn 40/=
-        </v-card-text>
-        <v-card-actions  class="justify-center" justify="center" align="center">
-          <v-btn color="red" class="white--text">
-          GET KS. 40/=
-      </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-
+    
 
     
   </v-row>
@@ -174,7 +41,7 @@
       </v-card-text>
     </v-card>
     </v-col>
-    
+    <ReferralModal :visible="dialog" @close="dialog=false" />
   </v-row>
   </div>
 </template>
@@ -182,16 +49,46 @@
 <script>
 import ImageCard from '../components/ImageCard.vue';
 import ProductCard from '../components/ProductCard.vue';
+import {mapMutations, mapGetters, mapActions} from 'vuex'
+import ReferralModal from '../components/ReferralModal.vue';
 
 export default {
   data () {
       return {
         dialog: false,
+        offer: null,
       }
     },
   components: {
     ImageCard,
-    ProductCard
+    ProductCard,
+    ReferralModal
+  },
+  computed: {
+        ...mapGetters({
+          offers: 'offers/offers'
+        })
+  },
+  created(){
+    this.fetchOffers();
+  },
+  methods: {
+    async fetchOffers(){
+      this.$store.dispatch('offers/fetchOffers');
+    },
+    getreward(offer){
+        console.log(offer)
+        this.$store.commit({
+          type: 'offers/setClickedOffer',
+          offer: offer
+        })
+        return offer.offer_target * offer.offer_rate;
+    },
+    refer: function(event){
+      this.dialog = true
+      
+    },
+
   }
 }
 </script>
