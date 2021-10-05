@@ -1,15 +1,12 @@
 <template>
   <v-app>
     <v-img src="images/background.jpg" cover height="230">
-    <v-container fluid>
-    <v-toolbar
-    elevation="0"
-    color="transparent"
-    >
-    <v-container style=" width: 80%">
-    <v-row justify="center" align="center">
-      <v-col class="" cols="2">
-        <v-img src="images/logo.jpg"></v-img>
+    <v-container fluid class="mt-3 pa-0" style="width:89%">
+   
+    <v-container fluid class=" ma-0 pa-0">
+    <v-row justify="center" align="center" class="ma-0 pa-0">
+      <v-col cols="2">
+        <v-img src="images/logo.png"></v-img>
       </v-col>
       <v-col class="" cols="8" justify="center" align="center">
           <ul id="menu">
@@ -18,7 +15,7 @@
             <li class="white--text font-weight-medium mb-2">Support</li>
           </ul> 
       </v-col>
-       <v-col class="" cols="2" justify="end" align="end">
+       <v-col cols="2" justify="end" align="end">
          <v-btn rounded>
            <v-icon>
              mdi-menu
@@ -30,12 +27,11 @@
        </v-col>
     </v-row>
     </v-container>
-  
-    </v-toolbar>
-    <v-toolbar elevation="0" color="transparent">
+
+    <v-toolbar elevation="0" class="mt-7" color="transparent">
       
          <v-row justify="center" align="center">
-           <v-col cols="5">
+           <v-col cols="8">
               <SearchBar/>
            </v-col>
         

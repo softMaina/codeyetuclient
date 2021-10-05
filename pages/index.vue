@@ -1,6 +1,6 @@
 <template>
   <div justify="center" align="center">
-  <v-row justify="center" align="center" style="width: 80%">
+  <v-row justify="center" align="center" style="width: 89%">
     <v-col cols="4" v-for="offer in offers" :key="offer.offer_id">
         <ProductCard :caption=offer.caption :logo=offer.brand.logo :reward=getreward(offer) :refer="refer" />
     </v-col>
