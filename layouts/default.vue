@@ -10,9 +10,9 @@
       </v-col>
       <v-col class="" cols="8" justify="center" align="center">
           <ul id="menu">
-            <li class="white--text font-weight-medium mb-2">Brands</li>
-            <li class="white--text font-weight-medium mb-2">Referrer</li>
-            <li class="white--text font-weight-medium mb-2">Support</li>
+            <li class="white--text font-weight-bold mb-2">Brands</li>
+            <li class="white--text font-weight-bold mb-2">Referrer</li>
+            <li class="white--text font-weight-bold mb-2">Support</li>
           </ul> 
       </v-col>
        <v-col cols="2" justify="end" align="end">
@@ -42,17 +42,17 @@
     </v-img>
      
     <v-main>
-      <v-container>
+      <v-container class="mb-4">
         <Nuxt />
       </v-container>
     </v-main>   
     <v-footer
       :absolute="!fixed"
       app
+      color="#cecece"
     >
-     <v-container>
+     <v-container fluid style="width:89%">
       <v-row>
-       
         <v-col cols="4">
           <ul class="bottom">
             <li>ABOUT</li>
@@ -120,6 +120,9 @@ export default {
 }
 .bottom {
     list-style-type: none;
+}
+ul.bottom li{
+  margin-top: 5px;
 }
 
 </style>

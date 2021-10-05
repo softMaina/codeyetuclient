@@ -1,15 +1,15 @@
 <template>
   <div justify="center" align="center">
-  <v-row justify="center" align="center" style="width: 89%">
+
+    
+  <v-row justify="center" align="center" style="background-color:#f4f4f4">
     <v-col cols="4" v-for="offer in offers" :key="offer.offer_id">
         <ProductCard :caption=offer.caption :logo=offer.brand.logo :reward=getreward(offer) :refer="refer" />
     </v-col>
-    
-
-    
   </v-row>
-  <v-row justify="center" align="center">
+  
 
+  <v-row justify="center" align="center" class="mb-8 mt-8">
     <v-col cols="3">
        <v-card  class="rounded-xl" width="480" height="400" img="images/food.jpg">
       <v-card-text class="white--text ">
