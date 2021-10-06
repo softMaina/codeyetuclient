@@ -42,7 +42,7 @@
     </v-img>
      
     <v-main>
-      <v-container class="mb-4">
+      <v-container fluid class="mb-4" style="width:89%">
         <Nuxt />
       </v-container>
     </v-main>   

@@ -1,16 +1,20 @@
 <template>
    
-        <v-card elevation="2">
-        <v-card-text class="justify-center">
+        <v-card elevation="5"  class="rounded-lg" height="450" width="450">
+          <div class="d-flex flex-column justify-space-around" style="height:100%">
+          <div class="">
           <v-img class="center" height="200" width="200" aspect-ratio="16/9" contain :src=logo ></v-img>
           <v-divider class="red mb-3" style="width:20%; border-width:2px;"></v-divider>
           {{caption}}
-        </v-card-text>
-        <v-card-actions  class="justify-center mt-0" justify="center" align="center">
-          <v-btn color="red" style="width:40%;" large class="white--text mb-3" @click.stop=refer>
+          </div>
+
+          <div class="mb-0">
+          <v-btn color="red" style="width:40%;" large class="white--text rounded-sm" @click.stop=refer>
           GET Ksh. {{reward}} /=
       </v-btn>
-        </v-card-actions>
+      </div>
+      </div>
+  
       </v-card>
 
 </template>
