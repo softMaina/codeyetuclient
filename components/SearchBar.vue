@@ -13,7 +13,7 @@
       class="ma-0 white--text"
       slot="append"
     >
-      <v-icon dark large>
+      <v-icon dark x-large>
         mdi-magnify
       </v-icon>
     </v-btn>

@@ -16,14 +16,42 @@
           </ul> 
       </v-col>
        <v-col cols="2" justify="end" align="end">
-         <v-btn rounded>
-           <v-icon>
+           <v-menu
+      offset-y
+      left
+      
+      
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          rounded
+          v-bind="attrs"
+          v-on="on"
+          height="53"
+          width="100"
+        >
+          <v-icon>
              mdi-menu
            </v-icon>
            <v-icon>
               mdi-account
            </v-icon>
-         </v-btn>
+        </v-btn>
+      </template>
+      <v-card class="rounded-lg mt-2" width="250">
+      <v-list>
+        <v-list-item
+        >
+          <v-list-item-title>Sign up</v-list-item-title>
+        </v-list-item>
+         <v-list-item
+        
+        >
+          <v-list-item-title>Log in</v-list-item-title>
+        </v-list-item>
+      </v-list>
+      </v-card>
+    </v-menu>
        </v-col>
     </v-row>
     </v-container>

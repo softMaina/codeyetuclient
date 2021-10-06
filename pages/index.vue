@@ -1,44 +1,68 @@
 <template>
   <div justify="center" align="center">
 
+    <v-expand-transition>
+  <v-row v-if="!offers_loading" justify="center" align="center" style="background-color:#f4f4f4">
     
-  <v-row justify="center" align="center" style="background-color:#f4f4f4">
     <v-col cols="4" v-for="offer in offers" :key="offer.offer_id">
         <ProductCard :caption=offer.caption :logo=offer.brand.logo :reward=getreward(offer) :refer="refer" />
     </v-col>
+   
   </v-row>
+   </v-expand-transition>
+  <v-row
+        v-if="offers_loading"
+        class="fill-height"
+        align-content="center"
+        justify="center"
+      >
+        <v-col
+          class="text-subtitle-1 text-center"
+          cols="12"
+        >
+          Getting your deals
+        </v-col>
+        <v-col cols="6">
+          <v-progress-linear
+            color="deep-orange accent-4"
+            indeterminate
+            rounded
+            height="6"
+          ></v-progress-linear>
+        </v-col>
+      </v-row>
   
 
   <v-row justify="center" align="center" class="mb-8 mt-8">
     <v-col cols="3">
-       <v-card  class="rounded-xl" width="480" height="400" img="images/food.jpg">
-      <v-card-text class="white--text ">
-       <p class="pro-text">Eat Out</p> 
-      </v-card-text>
+       <v-card  class="rounded-xl" width="450" height="490" img="images/food.jpg">
+      <div class="d-flex flex-column justify-end align-start white--text" style="height:100%; background-color: rgba(0,0,0,0.4)">
+       <p class="pro-text ml-10 mb-10">Eat Out</p> 
+      </div>
     </v-card>
     </v-col>
 
      <v-col cols="3">
-       <v-card  class="rounded-xl" width="480" height="400" img="images/business.jpg">
-      <v-card-text class="white--text ">
-       <p class="pro-text">Financial Services</p> 
-      </v-card-text>
+       <v-card  class="rounded-xl" width="450" height="490" img="images/business.jpg">
+      <div class="d-flex flex-column justify-end align-start white--text" style="height:100%; background-color: rgba(0,0,0,0.4)">
+       <p class="pro-text ml-10 mb-10">Financial Services</p> 
+      </div>
     </v-card>
     </v-col>
 
      <v-col cols="3">
-       <v-card  class="rounded-xl" width="480" height="400" img="images/home.jpg">
-      <v-card-text class="white--text ">
-       <p class="pro-text">Home Essentials</p> 
-      </v-card-text>
+       <v-card  class="rounded-xl" width="450" height="490" img="images/home.jpg">
+      <div class="d-flex flex-column justify-end align-start white--text" style="height:100%; background-color: rgba(0,0,0,0.4)">
+       <p class="pro-text ml-10 mb-10">Home Essentials</p> 
+      </div>
     </v-card>
     </v-col>
 
      <v-col cols="3">
-       <v-card  class="rounded-xl" width="480" height="400" img="images/automotive.jpeg">
-      <v-card-text class="white--text ">
-       <p class="pro-text">Auto Service</p> 
-      </v-card-text>
+       <v-card  class="rounded-xl" width="450" height="490" img="images/automotive.jpeg">
+      <div class="d-flex flex-column justify-end align-start white--text" style="height:100%; background-color: rgba(0,0,0,0.4)">
+       <p class="pro-text ml-10 mb-10">Auto Services</p> 
+      </div>
     </v-card>
     </v-col>
     <ReferralModal :visible="dialog" @close="dialog=false" />
@@ -66,7 +90,8 @@ export default {
   },
   computed: {
         ...mapGetters({
-          offers: 'offers/offers'
+          offers: 'offers/offers',
+          offers_loading: 'offers/offers_loading'
         })
   },
   created(){
