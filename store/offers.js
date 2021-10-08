@@ -2,8 +2,10 @@ export const state = () => ({
     offers: [],
     brands: [],
     referrals: [],
+    user: null,
     clicked_offer: null,
-    offers_loading: true
+    offers_loading: true,
+    snackbar: false,
 })
 
 export const getters = {
@@ -12,7 +14,8 @@ export const getters = {
     clicked_offer: state => state.clicked_offer,
     brands: state => state.brands,
     referrals: state => state.referrals,
-    offers_loading: state => state.offers_loading
+    offers_loading: state => state.offers_loading,
+    snackbar: state => state.snackbar,
 }
 
 export const mutations = {
@@ -30,6 +33,9 @@ export const mutations = {
     },
     setOffersLoading(state){
         state.offers_loading = !state.offers_loading
+    },
+    setSnackbar(state){
+        state.snackbar = !state.snackbar
     }
 
 }
@@ -69,6 +75,9 @@ export const actions = {
     async referPersons({commit, dispatch}, data){
         await this.$axios.post('http://34.93.90.55/v1/api/referrals',data).then((res)=>{
                 console.log('referrals sent');
+                commit({
+                    type: 'setSnackbar'
+                })
         })
     }
 }

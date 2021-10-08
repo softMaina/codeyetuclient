@@ -10,7 +10,7 @@
       </v-col>
       <v-col class="" cols="8" justify="center" align="center">
           <ul id="menu">
-            <li class="white--text font-weight-bold mb-2">Brands</li>
+            <li class="white--text font-weight-bold mb-2"><NuxtLink to="/brandspage" class="white--text"  style="text-decoration: none; color: inherit;">Brands</NuxtLink></li>
             <li class="white--text font-weight-bold mb-2">Referrer</li>
             <li class="white--text font-weight-bold mb-2">Support</li>
           </ul> 
@@ -42,13 +42,15 @@
       <v-list>
         <v-list-item
         >
-          <v-list-item-title>Sign up</v-list-item-title>
+          <v-list-item-title @click="signup_user">Sign up</v-list-item-title>
         </v-list-item>
-         <v-list-item
-        
-        >
-          <v-list-item-title>Log in</v-list-item-title>
+         <v-list-item>
+          <v-list-item-title @click="signin_user">Log in</v-list-item-title>
         </v-list-item>
+        <v-list-item>
+          <v-list-item-title @click="goToAccount">Account</v-list-item-title>
+        </v-list-item>
+
       </v-list>
       </v-card>
     </v-menu>
@@ -82,44 +84,113 @@
      <v-container fluid style="width:89%">
       <v-row>
         <v-col cols="4">
-          <ul class="bottom">
-            <li>ABOUT</li>
-            <li>How CodeYetu works</li>
-            <li>Newsroom</li>
-            <li>Investors</li>
-            <li>Referrers</li>
-            <li>Careers</li>
-            <li>Contacts</li>
-            <li>Privacy</li>
-            <li>Terms Of Use</li>
-          </ul>
+          <v-list color="footer">
+      <v-subheader class="font-weight-black">ABOUT</v-subheader>
+      <v-list-item-group
+        v-model="selectedItem"
+        color="primary"
+      >
+        <v-list-item>
+            <v-list-item-title>How Codeyetu works</v-list-item-title>
+        </v-list-item>
+         <v-list-item>
+            <v-list-item-title>Newsroom</v-list-item-title>
+        </v-list-item>
+         <v-list-item>
+            <v-list-item-title>Investors</v-list-item-title>
+        </v-list-item>
+         <v-list-item>
+            <v-list-item-title>Referrers</v-list-item-title>
+        </v-list-item>
+         <v-list-item>
+            <v-list-item-title>Careers</v-list-item-title>
+        </v-list-item>
+         <v-list-item>
+            <v-list-item-title>Contacts</v-list-item-title>
+        </v-list-item>
+         <v-list-item>
+            <v-list-item-title>Privacy</v-list-item-title>
+        </v-list-item>
+        <v-list-item>
+            <v-list-item-title>Terms Of Use</v-list-item-title>
+        </v-list-item>
+      </v-list-item-group>
+    </v-list>
         </v-col>
          <v-col cols="4">
-           <ul class="bottom">
-             <li>BRAND OWNERS</li>
-             <li>How to get listed</li>
-             <li>Resources</li>
-             <li>Sales</li>
-           </ul>
+             <v-list color="footer">
+      <v-subheader class="font-weight-black" >BRAND OWNERS</v-subheader>
+      <v-list-item-group
+        v-model="selectedItem"
+        color="primary"
+      >
+        <v-list-item>
+            <v-list-item-title>How To Get Listed</v-list-item-title>
+        </v-list-item>
+         <v-list-item>
+            <v-list-item-title>Resources</v-list-item-title>
+        </v-list-item>
+         <v-list-item>
+            <v-list-item-title>Sales</v-list-item-title>
+        </v-list-item>
+     
+      </v-list-item-group>
+    </v-list>
          </v-col>
           <v-col cols="4">
-            <ul class="bottom">
-              <li>SUPPORT</li>
-              <li>Our COVID 19 Response</li>
-              <li>Help Centre</li>
-              <li>Cancellation Options</li>
-              <li>Quality Assurance</li>
-            </ul>
+              <v-list color="footer">
+      <v-subheader class="font-weight-black">SUPPORT</v-subheader>
+      <v-list-item-group
+        v-model="selectedItem"
+        color="primary"
+      >
+        <v-list-item>
+            <v-list-item-title>Our COVID-19 Response</v-list-item-title>
+        </v-list-item>
+         <v-list-item>
+            <v-list-item-title>Help Center</v-list-item-title>
+        </v-list-item>
+         <v-list-item>
+            <v-list-item-title>Cancellation options</v-list-item-title>
+        </v-list-item>
+         <v-list-item>
+            <v-list-item-title>Quality assurance</v-list-item-title>
+        </v-list-item>
+      </v-list-item-group>
+    </v-list>
           </v-col>
          
       </v-row>
        </v-container>
     </v-footer>
+    <v-snackbar
+      right
+      top
+      v-model=snackbar
+    >
+      Referrals Sent!!
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="secondary"
+          text
+          v-bind="attrs"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+     <SignInModal :visible="signin" @close="signin=false" />
+     <SignUpModal :visible="signup" @close="signup=false" />
   </v-app>
 </template>
 
 <script>
+import SignUpModal from '../components/SignUpModal.vue';
+import SignInModal from '../components/SignInModal.vue';
 import SearchBar from '../components/SearchBar.vue';
+import {mapMutations, mapGetters, mapActions} from 'vuex'
 export default {
   data () {
     return {
@@ -129,7 +200,26 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: ''
+      title: '',
+        signin: false,
+        signup: false
+    }
+  },
+    computed: {
+    ...mapGetters({
+          snackbar: 'offers/snackbar'
+        }),
+        },
+  components: {SignUpModal, SignInModal},
+  methods: {
+      signin_user: function(){
+      this.signin = true
+    },
+    signup_user: function(){
+      this.signup = true
+    },
+    goToAccount(){
+      this.$router.push('/account'); 
     }
   }
 }

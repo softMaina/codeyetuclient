@@ -1,63 +1,56 @@
 <template>
-<v-dialog v-model="show" max-width="700px">
-  <v-card class="rounded-lg">
-    <div class="d-flex justify-center align-center primary">
+<v-dialog v-model="show" max-width="700px" class="rounded-lg">
+  <v-card class="rounded-lg" elevation="1">
+      <div class="d-flex justify-center align-center primary" >
     <v-card-title class="white--text">
-      Refer A Person
+      Sign up
     </v-card-title>
     </div>
-    <div class="ma-2 pa-2">
-       <v-data-table
-              :headers="headers"
-              :items="referrals"
-              class="elevation-0 mb-3"
-               hide-default-footer
-            ></v-data-table>
-            <v-divider class="primary"></v-divider>
+    <v-divider></v-divider>
     <v-form v-model="valid">
     <v-container>
       <v-row>
         <v-col
           cols="12"
-          md="5"
         >
           <v-text-field
             v-model="name"
-            outlined
             label="Name"
+            outlined
             required
           ></v-text-field>
         </v-col>
 
         <v-col
           cols="12"
-          md="5"
         >
           <v-text-field
             v-model="phone"
-            outlined
             label="Phone Number"
+            outlined
             required
           ></v-text-field>
         </v-col>
-        <v-col cols="12" md="2">
-            <v-btn 
-            @click="add"
-            fab
-            class="primary"
-            >
-              <v-icon>
-                mdi-plus
-              </v-icon>
-            </v-btn>
+
+        <v-col
+          cols="12"
+        >
+          <v-text-field
+            
+            v-model="phone"
+            outlined
+            label="Password"
+            required
+          ></v-text-field>
         </v-col>
       </v-row>
     </v-container>
   </v-form>
-   <v-card-actions justify="end" align="end">
-     <v-btn large block color="secondary" @click.stop="refer">Refer</v-btn>
+   <v-card-actions>
+     <v-btn dark block large class="white--text rounded-sm" color="secondary" @click.stop="refer">
+       <div>Sign Up</div>
+     </v-btn>
     </v-card-actions>
-    </div>
   </v-card>
 </v-dialog>
 </template>
@@ -66,7 +59,7 @@
 import {mapMutations, mapGetters, mapActions} from 'vuex'
 
 export default {
-    name: "ReferralModal",
+    name: "SignUpModal",
   props: ['visible'],
    data: () => ({
       referrals: [],

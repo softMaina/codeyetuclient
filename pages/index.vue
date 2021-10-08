@@ -81,6 +81,7 @@ export default {
       return {
         dialog: false,
         offer: null,
+      
       }
     },
   components: {
@@ -112,12 +113,13 @@ export default {
     refer: function(event){
       this.dialog = true
       
+      
     },
+  
 
   }
 }
 </script>
-
 
 <style scoped>
 .pro-text {

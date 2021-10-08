@@ -50,7 +50,8 @@ export default {
   ],
 
   axios: {
-    // proxy: true
+    // baseURL: 'http://localhost:5000',
+    // baseURL: 'http://34.93.90.55/v1',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -63,6 +64,14 @@ export default {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3,
+          },
+        light: {
+          primary:'#cc1335',
+          secondary: '#f8a932',
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
