@@ -5,7 +5,7 @@
   <v-row v-if="!offers_loading" justify="center" align="center" style="background-color:#f4f4f4">
     
     <v-col cols="4" v-for="offer in offers" :key="offer.offer_id">
-        <ProductCard :caption=offer.caption :logo=offer.brand.logo :reward=getreward(offer) :refer="refer" />
+        <ProductCard :caption=offer.caption :logo=offer.brand.logo :reward=getreward(offer) :refer="refer"/>
     </v-col>
    
   </v-row>
@@ -112,7 +112,7 @@ export default {
     },
     refer: function(event){
       this.dialog = true
-      
+      console.log(event)
       
     },
   
