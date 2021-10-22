@@ -46,7 +46,7 @@ export const actions = {
         await this.$axios.get('http://159.223.28.235:8080/api/offers').then((res)=>{
             commit({
                 type: 'setOffers',
-                offers: res.data
+                offers: res.data["results"]
             })
             commit({
                 type: 'setOffersLoading'
@@ -58,7 +58,7 @@ export const actions = {
         await this.$axios.get('http://159.223.28.235:8080/api/referrals').then((res)=>{
             commit({
                 type: 'setReferrals',
-                offers: res.data
+                offers: res.data["results"]
             })
         })
     },
@@ -67,7 +67,7 @@ export const actions = {
         await this.$axios.get('http://159.223.28.235:8080/api/brands').then((res)=>{
             commit({
                 type: 'setBrands',
-                offers: res.data
+                offers: res.data["results"]
             })
         })
     },
