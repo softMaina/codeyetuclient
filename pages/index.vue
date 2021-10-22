@@ -2,7 +2,7 @@
   <div justify="center" align="center">
 
     <v-expand-transition>
-  <v-row v-if="!offers_loading" justify="center" align="center" style="background-color:#f4f4f4">
+  <v-row v-if="!offers_loading" justify="center" align="center" style="background-color:#fff">
     
     <v-col cols="4" v-for="offer in offers" :key="offer.offer_id">
         <ProductCard :caption=offer.caption :logo=offer.brand.logo :reward=getreward(offer) :refer="refer"/>
