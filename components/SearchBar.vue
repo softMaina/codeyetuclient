@@ -1,12 +1,16 @@
 <template>
-     <v-text-field
-     width="50%"
-     rounded
-     class="rounded-pill pa-0"
-     background-color="white"
-     label="Which brand are you looking for?"
-      height="66"
-     >
+  <v-autocomplete
+    width="50%"
+    rounded
+    class="rounded-pill pa-0"
+    background-color="white"
+    label="Which brand are you looking for?"
+    height="66"
+    clearable
+    v-model="keyword"
+    :search-input.sync="search_brands"
+    :items="search_results"
+  >
     <v-btn
       color="red"
       fab
@@ -18,12 +22,35 @@
         mdi-magnify
       </v-icon>
     </v-btn>
-  </v-text-field>    
+  </v-autocomplete>
 </template>
 
 <script>
-export default  {
-    name: "SearchBar"
-    
+import {mapGetters} from 'vuex';
+
+export default {
+  name: "SearchBar",
+  data() {
+    return {
+      keyword: null,
+      search_brands: null,
+    }
+  },
+  computed: {
+    ...mapGetters({
+      search_results: 'offers/search_results',
+    })
+  },
+  watch: {
+    search_brands(val) {
+
+      this.$store.dispatch('offers/search', val)
+    }
+  },
+  methods: {
+    navigateToBrands() {
+
+    },
+  }
 }
 </script>
