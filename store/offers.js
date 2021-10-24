@@ -44,13 +44,14 @@ export const actions = {
     async fetchOffers({commit, dispatch}) {
 
         await this.$axios.get('http://159.223.28.235:8080/api/offers').then((res)=>{
-            commit({
-                type: 'setOffers',
-                offers: res.data["results"]
-            })
-            commit({
-                type: 'setOffersLoading'
-            })
+          console.log(res.data["results"])
+          commit({
+            type: 'setOffers',
+            offers: res.data["results"]
+          })
+          commit({
+            type: 'setOffersLoading'
+          })
         })
     },
 

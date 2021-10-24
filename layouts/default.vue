@@ -2,7 +2,7 @@
   <v-app>
     <v-img src="images/background.jpg" cover height="230">
     <v-container fluid class="mt-3 pa-0" style="width:89%">
-   
+
     <v-container fluid class=" ma-0 pa-0">
     <v-row justify="center" align="center" class="ma-0 pa-0">
       <v-col cols="2">
@@ -10,28 +10,31 @@
       </v-col>
       <v-col class="" cols="8" justify="center" align="center">
           <ul id="menu">
-            <li class="white--text font-weight-bold mb-2"><NuxtLink to="/brandspage" class="white--text"  style="text-decoration: none; color: inherit;">Brands</NuxtLink></li>
+            <li class="white--text font-weight-bold mb-2">
+              <NuxtLink to="/brandspage" class="white--text" style="text-decoration: none; color: inherit;">Brands
+              </NuxtLink>
+            </li>
             <li class="white--text font-weight-bold mb-2">Referrer</li>
             <li class="white--text font-weight-bold mb-2">Support</li>
-          </ul> 
+          </ul>
       </v-col>
        <v-col cols="2" justify="end" align="end">
-           <v-menu
-      offset-y
-      left
-      
-      
-    >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          rounded
-          v-bind="attrs"
-          v-on="on"
-          height="53"
-          width="100"
-        >
-          <v-icon>
-             mdi-menu
+         <v-menu
+           offset-y
+           left
+
+
+         >
+           <template v-slot:activator="{ on, attrs }">
+             <v-btn
+               rounded
+               v-bind="attrs"
+               v-on="on"
+               height="53"
+               width="100"
+             >
+               <v-icon>
+                 mdi-menu
            </v-icon>
            <v-icon>
               mdi-account
@@ -41,15 +44,20 @@
       <v-card class="rounded-lg mt-2" width="250">
       <v-list>
         <v-list-item
+          v-if="!this.$auth.loggedIn"
         >
           <v-list-item-title @click="signup_user">Sign up</v-list-item-title>
         </v-list-item>
-         <v-list-item>
+        <v-list-item v-if="!this.$auth.loggedIn">
           <v-list-item-title @click="signin_user">Log in</v-list-item-title>
         </v-list-item>
-        <v-list-item>
+        <v-list-item v-if="this.$auth.loggedIn">
           <v-list-item-title @click="goToAccount">Account</v-list-item-title>
         </v-list-item>
+        <v-list-item v-if="this.$auth.loggedIn">
+          <v-list-item-title @click="logout">Log Out</v-list-item-title>
+        </v-list-item>
+
 
       </v-list>
       </v-card>
@@ -59,23 +67,23 @@
     </v-container>
 
     <v-toolbar elevation="0" class="mt-7" color="transparent">
-      
+
          <v-row justify="center" align="center">
            <v-col cols="8">
               <SearchBar/>
            </v-col>
-        
+
       </v-row>
-  
+
     </v-toolbar>
     </v-container>
     </v-img>
-     
+
     <v-main>
       <v-container fluid class="mb-4" style="width:89%">
-        <Nuxt />
+        <Nuxt/>
       </v-container>
-    </v-main>   
+    </v-main>
     <v-footer
       :absolute="!fixed"
       app
@@ -87,7 +95,7 @@
           <v-list color="footer">
       <v-subheader class="font-weight-black">ABOUT</v-subheader>
       <v-list-item-group
-        v-model="selectedItem"
+
         color="primary"
       >
         <v-list-item>
@@ -121,7 +129,7 @@
              <v-list color="footer">
       <v-subheader class="font-weight-black" >BRAND OWNERS</v-subheader>
       <v-list-item-group
-        v-model="selectedItem"
+
         color="primary"
       >
         <v-list-item>
@@ -133,7 +141,7 @@
          <v-list-item>
             <v-list-item-title>Sales</v-list-item-title>
         </v-list-item>
-     
+
       </v-list-item-group>
     </v-list>
          </v-col>
@@ -141,7 +149,7 @@
               <v-list color="footer">
       <v-subheader class="font-weight-black">SUPPORT</v-subheader>
       <v-list-item-group
-        v-model="selectedItem"
+
         color="primary"
       >
         <v-list-item>
@@ -159,7 +167,7 @@
       </v-list-item-group>
     </v-list>
           </v-col>
-         
+
       </v-row>
        </v-container>
     </v-footer>
@@ -189,10 +197,11 @@
 <script>
 import SignUpModal from '../components/SignUpModal.vue';
 import SignInModal from '../components/SignInModal.vue';
-import SearchBar from '../components/SearchBar.vue';
-import {mapMutations, mapGetters, mapActions} from 'vuex'
+import {mapGetters} from 'vuex'
+
 export default {
-  data () {
+  name: 'default',
+  data() {
     return {
       clipped: false,
       drawer: false,
@@ -201,8 +210,8 @@ export default {
       right: true,
       rightDrawer: false,
       title: '',
-        signin: false,
-        signup: false
+      signin: false,
+      signup: false
     }
   },
     computed: {
@@ -212,14 +221,17 @@ export default {
         },
   components: {SignUpModal, SignInModal},
   methods: {
-      signin_user: function(){
+    signin_user: function () {
       this.signin = true
     },
-    signup_user: function(){
+    signup_user: function () {
       this.signup = true
     },
-    goToAccount(){
-      this.$router.push('/account'); 
+    goToAccount() {
+      this.$router.push('/account');
+    },
+    async logout() {
+      await this.$store.dispatch('_auth/logout')
     }
   }
 }
@@ -228,8 +240,8 @@ export default {
 <style scoped>
 
 .hero {
-  background: url(static/images/background.jpg);       
- }
+  background: url(static/images/background.jpg);
+}
  ul#menu li {
    padding: 30px;
    font-size: 20px;

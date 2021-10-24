@@ -14,8 +14,8 @@
           cols="12"
         >
           <v-text-field
-            v-model="name"
-            label="Name"
+            v-model="email"
+            label="Email"
             outlined
             required
           ></v-text-field>
@@ -25,7 +25,7 @@
           cols="12"
         >
           <v-text-field
-            v-model="phone"
+            v-model="password"
             label="Password"
             required
             outlined
@@ -36,52 +36,34 @@
     </v-container>
   </v-form>
    <v-card-actions>
-     <v-btn dark large block color="secondary" @click.stop="refer">
+     <v-btn dark large block color="secondary" @click.stop="login">
        <div>
-       Log In
+         Log In
        </div>
-       </v-btn>
+     </v-btn>
     </v-card-actions>
   </v-card>
 </v-dialog>
 </template>
 
 <script>
-import {mapMutations, mapGetters, mapActions} from 'vuex'
 
 export default {
-    name: "SignInModal",
+  name: "SignInModal",
   props: ['visible'],
-   data: () => ({
-      referrals: [],
-      valid: false,
-      name: '',
-      phone: '',
-      headers: [
-      {
-        text: 'Name',
-        align: 'start',
-        sortable: false,
-        value:'name',
-      },
-      {
-        text: 'Phone Number',
-        align: 'start',
-        sortable: false,
-        value:'phone',
-      },
+  data: () => ({
 
-    ],
-    }),
+    valid: false,
+    email: '',
+    password: '',
+
+  }),
   computed: {
-    ...mapGetters({
-          clicked_offer: 'offers/clicked_offer'
-        }),
     show: {
-      get () {
+      get() {
         return this.visible
       },
-      set (value) {
+      set(value) {
         if (!value) {
           this.$emit('close')
         }
@@ -89,20 +71,14 @@ export default {
     }
   },
   methods: {
-    add(){
-      let person = {
-        'offer_id': 1,
-        'name': this.name,
-        'phone': this.phone
-      };
-      this.referrals.push(person);
-      this.name = '';
-      this.phone = '';
-    },
-    async refer(){
-      // dispatch an action to send referred customers to server
-       await this.$store.dispatch('offers/referPersons', this.referrals)
-    
+
+    async login() {
+      let data = {
+        'email': this.email,
+        'password': this.password
+      }
+      await this.$store.dispatch('_auth/login', data)
+
     }
   }
 }

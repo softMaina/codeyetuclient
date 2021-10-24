@@ -1,13 +1,14 @@
 <template>
      <v-card  class="rounded-xl" width="480" height="400" img="images/automotive.jpeg">
       <v-card-text class="white--text ">
-       <p class="pro-text">Auto Service</p> 
+       <p class="pro-text">Auto Service</p>
       </v-card-text>
     </v-card>
 </template>
 <script>
 export default {
-    name: 'ImageCard'
+  name: 'ImageCard',
+  auth: false
 }
 </script>
 

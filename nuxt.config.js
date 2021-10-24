@@ -16,14 +16,18 @@ export default {
       lang: 'en'
     },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {hid: 'description', name: 'description', content: ''},
+      {name: 'format-detection', content: 'telephone=no'}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
+  },
+
+  router: {
+    middleware: ['auth']
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -32,8 +36,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -42,16 +45,17 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxt/typescript-build',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
 
   axios: {
-    // baseURL: 'http://localhost:5000',
-    // baseURL: 'http://34.93.90.55/v1',
+    baseURL: 'http://159.223.28.235:8080',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -82,7 +86,33 @@ export default {
     }
   },
 
+  auth: {
+    strategies: {
+      local: {
+        tokenRequired: true,
+        token: {
+          property: 'access_token',
+          required: true,
+          type: 'Bearer'
+        },
+        user: {
+          property: 'data',
+        },
+        endpoints: {
+          register: {url: '/auth/register', method: 'post'},
+          login: {url: '/auth/login', method: 'post'},
+          logout: {url: '/auth/logout', method: 'post'},
+          user: {url: '/auth/status', method: 'get'}
+        }
+      }
+    },
+    redirect: {
+      login: '/',
+      logout: '/',
+      home: '/'
+    }
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
+  build: {}
 }
