@@ -34,7 +34,7 @@
 
 
   <v-row justify="center" align="center" class="mb-8 mt-8">
-    <v-col xl="3" lg="3" md="3" xs="1" sm="1">
+    <v-col xl="3" lg="3" md="6" xs="1" sm="1">
       <v-card class="rounded-xl" width="450" height="490" img="images/food.jpg">
         <div class="d-flex flex-column justify-end align-start white--text"
              style="height:100%; background-color: rgba(0,0,0,0.4)">
