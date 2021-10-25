@@ -6,7 +6,7 @@ export const state = () => ({
   clicked_offer: null,
   offers_loading: true,
   snackbar: false,
-  search_results: [],
+  search_results: ["Maina", "Allan", "Eric"],
 })
 
 export const getters = {

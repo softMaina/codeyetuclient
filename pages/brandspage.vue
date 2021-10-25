@@ -6,6 +6,18 @@
 <script>
 export default {
   name: "brandspage",
-  auth: false
+  auth: false,
+  data() {
+    return {}
+  },
+  created() {
+
+  },
+  computed: {},
+  methods: {
+    async getBrand(id) {
+      //get brand and its offers by id
+    }
+  }
 }
 </script>

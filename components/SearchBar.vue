@@ -7,7 +7,7 @@
     label="Which brand are you looking for?"
     height="66"
     clearable
-    v-model="keyword"
+    v-model=keyword
     :search-input.sync="search_brands"
     :items="search_results"
   >
@@ -42,14 +42,19 @@ export default {
     })
   },
   watch: {
-    search_brands(val) {
+    async search_brands(val) {
 
-      this.$store.dispatch('offers/search', val)
+
+      //await this.$store.dispatch('offers/search', val)
+      if (val === this.keyword) {
+        this.navigateToBrands(val)
+      }
+
     }
   },
   methods: {
-    navigateToBrands() {
-
+    navigateToBrands(val) {
+      this.$router.push('/brandspage')
     },
   }
 }
