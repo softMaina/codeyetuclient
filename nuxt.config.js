@@ -10,8 +10,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - app',
-    title: 'app',
+    titleTemplate: '%s',
+    title: 'Codeyetu',
     htmlAttrs: {
       lang: 'en'
     },
