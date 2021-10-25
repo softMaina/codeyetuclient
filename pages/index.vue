@@ -43,7 +43,7 @@
       </v-card>
     </v-col>
 
-    <v-col xl="3" lg="3" md="3" xs="1" sm="1">
+    <v-col xl="3" lg="3" md="6" xs="1" sm="1">
       <v-card class="rounded-xl" width="450" height="490" img="images/business.jpg">
         <div class="d-flex flex-column justify-end align-start white--text"
              style="height:100%; background-color: rgba(0,0,0,0.4)">
@@ -52,7 +52,7 @@
       </v-card>
     </v-col>
 
-    <v-col xl="3" lg="3" md="3" xs="1" sm="1">
+    <v-col xl="3" lg="3" md="6" xs="1" sm="1">
       <v-card class="rounded-xl" width="450" height="490" img="images/home.jpg">
         <div class="d-flex flex-column justify-end align-start white--text"
              style="height:100%; background-color: rgba(0,0,0,0.4)">
@@ -61,7 +61,7 @@
       </v-card>
     </v-col>
 
-    <v-col xl="3" lg="3" md="3" xs="1" sm="1">
+    <v-col xl="3" lg="3" md="6" xs="1" sm="1">
       <v-card class="rounded-xl" width="450" height="490" img="images/automotive.jpeg">
         <div class="d-flex flex-column justify-end align-start white--text"
              style="height:100%; background-color: rgba(0,0,0,0.4)">
