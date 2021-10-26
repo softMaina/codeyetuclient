@@ -45,12 +45,11 @@
               cols="12"
               md="5"
             >
-          <v-text-field
-            v-model="no_of_employees"
-            outlined
-            label="No Of Employees"
-            required
-          ></v-text-field>
+          <v-select
+                        v-model="no_of_employees"
+                        :items="employees"
+                        label="No. Of Employees"
+                      ></v-select>
         </v-col>
 
          <v-col
@@ -149,6 +148,7 @@ export default {
   auth: false,
   props: ['cooporate'],
   data: () => ({
+    employees: ['1-9', '10-19', '20 - 100'],
     referrals: [],
     valid: false,
     company: '',
