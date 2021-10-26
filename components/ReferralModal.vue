@@ -113,19 +113,23 @@ export default {
   },
   methods: {
     add(){
+      let user_id = this.$auth.user.user_id
+      console.log(user_id.toString())
       let person = {
         'offer_id': 1,
         'name': this.name,
-        'phone': this.phone
+        'phone': this.phone,
+        'user_id': user_id.toString()
       };
       this.referrals.push(person);
       this.name = '';
       this.phone = '';
     },
     async refer(){
-      // dispatch an action to send referred customers to server
-       await this.$store.dispatch('offers/referPersons', this.referrals)
 
+      // dispatch an action to send referred customers to server
+     await this.$store.dispatch('offers/referPersons', this.referrals)
+     
     }
   }
 }
