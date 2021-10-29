@@ -5,6 +5,7 @@ export const state = () => ({
   user: null,
   clicked_offer: null,
   offers_loading: true,
+  brands_loading: true,
   snackbar: false,
   search_results: [],
 })
@@ -18,6 +19,7 @@ export const getters = {
   offers_loading: state => state.offers_loading,
   snackbar: state => state.snackbar,
   search_results: state => state.search_results,
+  brands_loading: state => state.brands_loading,
 }
 
 export const mutations = {
@@ -35,6 +37,9 @@ export const mutations = {
   },
   setOffersLoading(state) {
     state.offers_loading = !state.offers_loading
+  },
+  setBrandsLoading(state){
+      state.brands_loading = !state.brands_loading
   },
   setSnackbar(state) {
     state.snackbar = !state.snackbar
@@ -73,8 +78,12 @@ export const actions = {
     await this.$axios.get('/api/brands').then((res) => {
       commit({
         type: 'setBrands',
-        offers: res.data["results"]
+        brands: res.data["results"]
       })
+      commit({
+        type: 'setOffersLoading'
+      })
+      console.log(res.data["results"])
     })
   },
 
