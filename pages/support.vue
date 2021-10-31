@@ -13,6 +13,7 @@
 <script>
 export default {
   auth: false,
+  layout: "main",
   name: "support"
 }
 </script>

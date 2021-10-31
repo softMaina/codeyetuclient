@@ -35,6 +35,7 @@
 import {mapGetters} from 'vuex';
 export default {
   name: "account",
+  layout: "main",
   data: () => ({
     dialog: false,
     dialogDelete: false,

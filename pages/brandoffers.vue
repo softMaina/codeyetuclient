@@ -69,6 +69,7 @@ import CooporateModal from '../components/CooporateModal.vue';
 
 export default {
   auth: false,
+  layout: "main",
   name: "brandoffers",
   data() {
     return {

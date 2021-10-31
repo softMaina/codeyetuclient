@@ -24,6 +24,7 @@ import {mapGetters} from 'vuex'
 
 export default {
   name: "brandspage",
+  layout: "main",
   auth: false,
   data() {
     return {}
