@@ -6,7 +6,7 @@ export const state = () => ({
   account_info: null,
   account_referrals: [],
   clicked_offer: null,
-  offers_loading: true,
+  offers_loading: false,
   brands_loading: true,
   snackbar: false,
   search_results: [],
@@ -62,7 +62,9 @@ export const mutations = {
 
 export const actions = {
   async fetchOffers({commit, dispatch}) {
-
+    commit({
+      type: 'setOffersLoading'
+    })
     await this.$axios.get('/api/offers').then((res) => {
       commit({
         type: 'setOffers',
@@ -84,6 +86,9 @@ export const actions = {
   },
 
   async fetchBrands({commit, dispatch}) {
+    commit({
+      type: 'setOffersLoading'
+    })
     await this.$axios.get('/api/brands').then((res) => {
       commit({
         type: 'setBrands',
@@ -98,21 +103,26 @@ export const actions = {
 
   async fetchBrandOffers({commit, dispatch},id) {
     let url = '/api/brand/offers/'+id;
-   
+    commit({
+      type: 'setOffersLoading'
+    });
     await this.$axios.get(url).then((res) => {
       commit({
         type: 'setOffers',
         offers: res.data["results"]
       })
-      // commit({
-      //   type: 'setOffersLoading'
-      // })
+       commit({
+         type: 'setOffersLoading'
+       })
     })
   },
 
 
   async fetchCategoryBrands({commit, dispatch},id) {
     let url = '/api/categories/brands/'+id;
+    commit({
+      type: 'setBrandsLoading'
+    })
     await this.$axios.get(url).then((res) => {
       commit({
         type: 'setBrands',
