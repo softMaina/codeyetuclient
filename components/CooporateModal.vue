@@ -194,7 +194,7 @@ export default {
   methods: {
     add(){
         let user_id = this.$auth.user.user_id
-      console.log(user_id.toString())
+    
       let person = {
         'offer_id': 1,
         "name":this.contact_person,
@@ -207,10 +207,10 @@ export default {
         'email':this.email,
         'service':this.service,
         'business_location': this.business_location,
-        "referrer": user_id.toString()
+        "user_id": user_id.toString()
       };
       this.referrals.push(person);
-      console.log(person)
+  
        this.company= '',
     this.industry= '',
     this.no_of_employees= '',

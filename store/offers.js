@@ -54,7 +54,6 @@ export const actions = {
   async fetchOffers({commit, dispatch}) {
 
     await this.$axios.get('/api/offers').then((res) => {
-      console.log(res.data["results"])
       commit({
         type: 'setOffers',
         offers: res.data["results"]
@@ -83,13 +82,41 @@ export const actions = {
       commit({
         type: 'setOffersLoading'
       })
-      console.log(res.data["results"])
+    })
+  },
+
+
+  async fetchBrandOffers({commit, dispatch},id) {
+    let url = '/api/brand/offers/'+id;
+   
+    await this.$axios.get(url).then((res) => {
+      commit({
+        type: 'setOffers',
+        offers: res.data["results"]
+      })
+      // commit({
+      //   type: 'setOffersLoading'
+      // })
+    })
+  },
+
+
+  async fetchCategoryBrands({commit, dispatch},id) {
+    let url = '/api/categories/brands/'+id;
+    await this.$axios.get(url).then((res) => {
+      commit({
+        type: 'setBrands',
+        brands: res.data["results"]
+      })
+      commit({
+        type: 'setBrandsLoading'
+      })
     })
   },
 
   async referPersons({commit, dispatch}, data) {
     await this.$axios.post('/api/referrals', data).then((res) => {
-      console.log('referrals sent');
+ 
       commit({
         type: 'setSnackbar'
       })
@@ -99,7 +126,6 @@ export const actions = {
   async search({commit, dispatch}, data) {
     let search_string = '/api/search?keyword=' + data;
     await this.$axios.get(search_string).then((res) => {
-      console.log("searching")
       commit({
         type: 'setSearchResults',
         search_results: res.data["results"]

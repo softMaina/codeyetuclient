@@ -11,7 +11,7 @@
             <div class="d-flex flex-column justify-space-around" style="height:100%">
               <div class="">
                 <v-img class="center" height="200" width="200" aspect-ratio="16/9" contain
-                       :src=offer.brand.logo></v-img>
+                       :src="`${$axios.defaults.baseURL}` + offer.brand.logo "></v-img>
                 <v-divider class="red mb-3" style="width:20%; border-width:2px;"></v-divider>
                 {{ offer.caption }}
               </div>

@@ -5,7 +5,10 @@
         <v-container fluid class="ma-0 pa-0">
           <v-row justify="center" align="center" class="ma-0 pa-0">
             <v-col lg="2" xl="2" md="2" xs="1" sm="2">
-              <v-img src="images/logo.png"></v-img>
+              <NuxtLink to="/" class="white--text" style="text-decoration: none; color: inherit;">
+                <v-img src="images/logo.png"></v-img>
+              </NuxtLink>
+
             </v-col>
             <v-col cols="8" justify="center" align="center" v-if="!mini">
               <ul id="menu">
@@ -13,8 +16,14 @@
                   <NuxtLink to="/brandspage" class="white--text" style="text-decoration: none; color: inherit;">Brands
                   </NuxtLink>
                 </li>
-                <li class="white--text font-weight-bold mb-2">Referrer</li>
-                <li class="white--text font-weight-bold mb-2">Support</li>
+                <li class="white--text font-weight-bold mb-2">
+                  <NuxtLink to="/account" class="white--text" style="text-decoration: none; color: inherit;">Referrer
+                  </NuxtLink>
+                </li>
+                <li class="white--text font-weight-bold mb-2">
+                  <NuxtLink to="/support" class="white--text" style="text-decoration: none; color: inherit;">Support
+                  </NuxtLink>
+                </li>
               </ul>
             </v-col>
             <v-col v-if="mini">
@@ -101,14 +110,14 @@
 
           <v-list-item>
             <v-list-item-title>
-              <NuxtLink to="/brandspage" class="white--text" style="text-decoration: none; color: inherit;">Referrer
+              <NuxtLink to="/account" class="white--text" style="text-decoration: none; color: inherit;">Referrer
               </NuxtLink>
             </v-list-item-title>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-title>
-              <NuxtLink to="/brandspage" class="white--text" style="text-decoration: none; color: inherit;">Support
+              <NuxtLink to="/support" class="white--text" style="text-decoration: none; color: inherit;">Support
               </NuxtLink>
             </v-list-item-title>
           </v-list-item>
@@ -284,6 +293,9 @@ export default {
     },
     async logout() {
       await this.$store.dispatch('_auth/logout')
+    },
+    async goHome(){
+      await this.$router.push('/')
     }
   }
 }

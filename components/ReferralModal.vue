@@ -119,8 +119,9 @@ export default {
         'offer_id': 1,
         'name': this.name,
         'phone': this.phone,
-        'user_id': user_id.toString()
+        'user_id': user_id.toString(),
       };
+      console.log(person)
       this.referrals.push(person);
       this.name = '';
       this.phone = '';
