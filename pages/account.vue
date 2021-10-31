@@ -24,7 +24,7 @@
       </v-col>
       <v-col cols="4">
         <v-card>
-          <v-card-title>Earnings</v-card-title>
+          <v-card-title>Total Earnings</v-card-title>
           <v-card-text>Ksh </v-card-text>
         </v-card>
       </v-col>
@@ -43,13 +43,12 @@ export default {
         text: 'Referral',
         align: 'start',
         sortable: false,
-        value: 'name',
+        value: 'referred_name',
       },
-      {text: 'Offer', value: 'offer'},
-      {text: 'Date', value: 'date'},
-      {text: 'Reward', value: 'reward'},
+      {text: 'Offer', value: 'offer.caption'},
+      {text: 'Date', value: 'date_sent'},
+      {text: 'Reward', value: 'offer.offer_rate'},
       {text: 'Used', value: 'is_used'},
-      {text: 'Actions', value: 'actions', sortable: false},
     ],
     editedIndex: -1,
 

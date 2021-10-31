@@ -147,7 +147,10 @@ export const actions = {
     let user_id = this.$auth.user.user_id;
     let url = '/api/account/'+user_id;
     await this.$axios.get(url).then((res) => {
-      console.log(res)
+      commit({
+        type:'setAccountReferrals',
+        account_referrals: res.data["results"]
+      })
     })
   }
 }
