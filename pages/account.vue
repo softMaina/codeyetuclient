@@ -4,8 +4,7 @@
       <v-col cols="8">
         <v-data-table
           :headers="headers"
-          :items="desserts"
-          sort-by="calories"
+          :items="account_referrals"
           class="elevation-1"
         >
           <template v-slot:top>
@@ -21,35 +20,19 @@
               <v-spacer></v-spacer>
             </v-toolbar>
           </template>
-          <template v-slot:item.actions="{ item }">
-
-            <v-icon
-              small
-              @click="deleteItem(item)"
-            >
-              mdi-eye
-            </v-icon>
-          </template>
-          <template v-slot:no-data>
-            <v-btn
-              color="primary"
-              @click="initialize"
-            >
-              Reset
-            </v-btn>
-          </template>
         </v-data-table>
       </v-col>
       <v-col cols="4">
         <v-card>
           <v-card-title>Earnings</v-card-title>
-          <v-card-text>4000</v-card-text>
+          <v-card-text>Ksh </v-card-text>
         </v-card>
       </v-col>
     </v-row>
   </v-sheet>
 </template>
 <script>
+import {mapGetters} from 'vuex';
 export default {
   name: "account",
   data: () => ({
@@ -68,7 +51,6 @@ export default {
       {text: 'Used', value: 'is_used'},
       {text: 'Actions', value: 'actions', sortable: false},
     ],
-    desserts: [],
     editedIndex: -1,
 
   }),
@@ -77,6 +59,11 @@ export default {
     formTitle() {
       return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
     },
+     ...mapGetters({
+      account_info: 'offers/account_info',
+      account_referrals: 'offers/account_referrals',
+     
+    })
   },
 
   watch: {
@@ -89,30 +76,12 @@ export default {
   },
 
   created() {
-    this.initialize()
+    this.getAccount();
   },
 
   methods: {
-    initialize() {
-      this.desserts = [
-        {
-          name: 'Allan Maina',
-          offer: 'Refer 2 People To Earn 40ksh',
-          date: '',
-          reward: 24,
-          is_used: true,
-        },
-
-        {
-          name: 'William Rotich',
-          offer: 'Refer 10 People To Earn 90ksh',
-          date: '',
-          reward: 67,
-          is_used: false,
-        },
-
-
-      ]
+    async getAccount(){
+        this.$store.dispatch('offers/getAccountInfo')
     },
 
     editItem(item) {

@@ -133,7 +133,7 @@
 <script>
 import ImageCard from '../components/ImageCard.vue';
 import ProductCard from '../components/ProductCard.vue';
-import {mapGetters} from 'vuex'
+import {mapGetters} from 'vuex';
 import ReferralModal from '../components/ReferralModal.vue';
 import CooporateModal from '../components/CooporateModal.vue';
 

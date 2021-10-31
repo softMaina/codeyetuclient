@@ -3,6 +3,8 @@ export const state = () => ({
   brands: [],
   referrals: [],
   user: null,
+  account_info: null,
+  account_referrals: [],
   clicked_offer: null,
   offers_loading: true,
   brands_loading: true,
@@ -20,6 +22,8 @@ export const getters = {
   snackbar: state => state.snackbar,
   search_results: state => state.search_results,
   brands_loading: state => state.brands_loading,
+  account_info: state => state.account_info,
+  account_referrals: state => state.account_referrals,
 }
 
 export const mutations = {
@@ -46,7 +50,13 @@ export const mutations = {
   },
   setSearchResults(state, payload) {
     state.search_results = payload.search_results
-  }
+  },
+  setAccountInfo(state, payload){
+    state.account_info = payload.account_info
+  },
+  setAccountReferrals(state, payload){
+    state.account_referrals = payload.account_referrals
+  },
 
 }
 
@@ -130,6 +140,14 @@ export const actions = {
         type: 'setSearchResults',
         search_results: res.data["results"]
       })
+    })
+  },
+
+  async getAccountInfo({commit, dispatch}){
+    let user_id = this.$auth.user.user_id;
+    let url = '/api/account/'+user_id;
+    await this.$axios.get(url).then((res) => {
+      console.log(res)
     })
   }
 }
