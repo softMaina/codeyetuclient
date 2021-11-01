@@ -1,6 +1,6 @@
 <template>
 <v-dialog v-model="show" max-width="700px" class="rounded-lg">
-  <v-card class="rounded-xl" elevation="1">
+  <v-card class="rounded-xl  regular-poppins" elevation="1">
     <div class="d-flex justify-center align-center primary">
       <v-card-title class="white--text">
         Sign up
@@ -8,44 +8,29 @@
     </div>
     <v-divider></v-divider>
     <v-form v-model="valid">
-      <v-container>
-        <v-row>
-          <v-col
-            cols="12"
-          >
+      <v-container class="pa-5">
+       
             <v-text-field
               v-model="name"
               label="Name"
               outlined
               required
             ></v-text-field>
-          </v-col>
-
-          <v-col
-            cols="12"
-          >
+         
             <v-text-field
               v-model="phone"
               label="Phone Number"
               outlined
               required
             ></v-text-field>
-          </v-col>
-
-          <v-col
-            cols="12"
-          >
+         
             <v-text-field
               v-model="email"
               label="Email"
               outlined
               required
             ></v-text-field>
-          </v-col>
-
-          <v-col
-            cols="12"
-          >
+        
             <v-text-field
               type="password"
               v-model="password"
@@ -53,15 +38,14 @@
               label="Password"
               required
             ></v-text-field>
-          </v-col>
-        </v-row>
     </v-container>
   </v-form>
-   <v-card-actions>
+   <v-card-actions class="pa-5">
      <v-btn dark block large class="white--text rounded-sm" color="secondary" @click.stop="signup">
-       <div>Sign Up</div>
+       <div class="regular-poppins">Sign Up</div>
      </v-btn>
     </v-card-actions>
+    <div style="height:25px;"></div>
   </v-card>
 </v-dialog>
 </template>

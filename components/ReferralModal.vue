@@ -3,7 +3,7 @@
   <v-card class="rounded-xl">
     <div class="d-flex justify-center align-center primary">
       <v-card-title class="white--text">
-        Refer A Person
+         Referral Details
       </v-card-title>
     </div>
     <div class="ma-2 pa-2">

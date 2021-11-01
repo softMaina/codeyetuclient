@@ -8,16 +8,16 @@
           <!-- TODO add card for coorporates -->
 
           <v-card elevation="5" class="rounded-xl" height="450" width="450">
-            <div class="d-flex flex-column justify-space-around" style="height:100%">
-              <div class="">
+            <div class="d-flex flex-column justify-space-around pa-5" style="height:100%">
+              <div class="regular-poppins">
                 <v-img class="center" height="200" width="200" aspect-ratio="16/9" contain
                        :src="`${$axios.defaults.baseURL}` + offer.brand.logo "></v-img>
-                <v-divider class="red mb-3" style="width:20%; border-width:2px;"></v-divider>
+                <v-divider class="primary mb-3" style="width:20%; border-width:2px;"></v-divider>
                 {{ offer.caption }}
               </div>
 
               <div class="mb-0">
-                <v-btn color="red" style="width:40%;" large class="white--text rounded-sm" @click.stop="refer(offer)">
+                <v-btn color="primary" style="width:40%;" large class="regular-poppins white--text rounded-sm" @click.stop="refer(offer)">
                   GET Ksh. {{ getreward(offer) }} /=
                 </v-btn>
               </div>
@@ -34,12 +34,6 @@
       align-content="center"
       justify="center"
     >
-      <v-col
-        class="text-subtitle-1 text-center"
-        xl="12" lg="12" md="12" xs="12" sm="12"
-      >
-        Getting your deals
-      </v-col>
       <v-col xl="12" lg="12" md="12" xs="12" sm="12">
         <v-progress-linear
           color="deep-orange accent-4"
@@ -53,16 +47,16 @@
 
     <v-row justify="center" align="center" class="mb-8 mt-8">
       <v-col xl="3" lg="3" md="6" xs="12" sm="12">
-        <v-card class="rounded-xl" width="450" height="610" img="images/dayoutsize.png">
+        <v-card class="rounded-xl" width="450" height="550" img="images/dayoutsize.png">
           <div class="d-flex flex-column justify-end align-center white--text"
                style="height:100%; background-color: rgba(0,0,0,0.3)">
             <div class="rounded-xl mb-10 pa-4 d-flex flex-column justify-start align-start"
                  style="background-color: rgba(0,0,0,0.8); width: 80%;">
-              <p class="pro-text text-left">Day/Night</p>
-              <p class="pro-text text-left">Out</p>
-              <p class="text-left">Earn extra income and rewards by referring restaurants, hotels, socials and events to
+              <p class="pro-text light-poppins text-left">Day/Night</p>
+              <p class="pro-text light-poppins text-left">Out</p>
+              <p class="text-left regular-poppins">Earn extra income and rewards by referring restaurants, hotels, socials and events to
                 your friends</p>
-              <v-btn>
+              <v-btn class="regular-poppins">
                 Earn More
               </v-btn>
             </div>
@@ -71,16 +65,16 @@
       </v-col>
 
       <v-col xl="3" lg="3" md="6" xs="12" sm="12">
-        <v-card class="rounded-xl" width="450" height="610" img="images/prosize.png">
+        <v-card class="rounded-xl" width="450" height="550" img="images/prosize.png">
           <div class="d-flex flex-column justify-end align-center white--text"
                style="height:100%; background-color: rgba(0,0,0,0.3)">
             <div class="rounded-xl mb-10 pa-4 d-flex flex-column justify-start align-start"
                  style="background-color: rgba(0,0,0,0.8); width: 80%;">
-              <p class="pro-text text-left">Professional</p>
-              <p class="pro-text text-left">Services</p>
-              <p class="text-left">Earn extra income and rewards by referring businesses, professionals and experts to
+              <p class="pro-text light-poppins text-left">Professional</p>
+              <p class="pro-text light-poppins text-left">Services</p>
+              <p class="text-left regular-poppins">Earn extra income and rewards by referring businesses, professionals and experts to
                 your friends</p>
-              <v-btn>
+              <v-btn class="regular-poppins">
                 Earn More
               </v-btn>
             </div>
@@ -89,16 +83,16 @@
       </v-col>
 
       <v-col xl="3" lg="3" md="6" xs="12" sm="12">
-        <v-card class="rounded-xl" width="450" height="610" img="images/householdsize.png">
+        <v-card class="rounded-xl" width="450" height="550" img="images/householdsize.png">
           <div class="d-flex flex-column justify-end align-center white--text"
                style="height:100%; background-color: rgba(0,0,0,0.3)">
             <div class="rounded-xl mb-10 pa-4 d-flex flex-column justify-start align-start"
                  style="background-color: rgba(0,0,0,0.8); width: 80%;">
-              <p class="pro-text text-left">Household</p>
-              <p class="pro-text text-left">Items</p>
-              <p class="text-left">Earn extra income and rewards by referring electronic brands, retailers and household
+              <p class="pro-text light-poppins text-left">Household</p>
+              <p class="pro-text light-poppins text-left">Items</p>
+              <p class="text-left regular-poppins">Earn extra income and rewards by referring electronic brands, retailers and household
                 brands to your friends</p>
-              <v-btn>
+              <v-btn class="regular-poppins">
                 Earn More
               </v-btn>
             </div>
@@ -107,16 +101,16 @@
       </v-col>
 
       <v-col xl="3" lg="3" md="6" xs="12" sm="12">
-        <v-card class="rounded-xl" width="450" height="610" img="images/autosize.png">
+        <v-card class="rounded-xl" width="450" height="550" img="images/autosize.png">
           <div class="d-flex flex-column justify-end align-center white--text"
                style="height:100%; background-color: rgba(0,0,0,0.3)">
             <div class="rounded-xl mb-10 pa-4 d-flex flex-column justify-start align-start"
                  style="background-color: rgba(0,0,0,0.8); width: 80%;">
-              <p class="pro-text text-left">Auto</p>
-              <p class="pro-text text-left">Services</p>
-              <p class="text-left">Earn extra income and rewards by referring service centres, car dealers and other
+              <p class="pro-text light-poppins text-left">Auto</p>
+              <p class="pro-text light-poppins text-left">Services</p>
+              <p class="text-left regular-poppins">Earn extra income and rewards by referring service centres, car dealers and other
                 services to your friends</p>
-              <v-btn>
+              <v-btn class="regular-poppins">
                 Earn More
               </v-btn>
             </div>
@@ -190,8 +184,7 @@ export default {
 
 <style scoped>
 .pro-text {
-  font-weight: bold;
-  font-size: 36px;
+  font-size: 30px;
   line-height: 0.6;
 }
 </style>

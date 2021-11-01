@@ -49,22 +49,26 @@
                   </v-btn>
                 </template>
                 <v-card class="rounded-lg mt-2" width="250">
-                  <v-list>
+                   <v-list>
+                      <v-list-item-group
+                color="primary"
+              >
                     <v-list-item
                       v-if="!this.$auth.loggedIn"
                     >
-                      <v-list-item-title @click="signup_user">Sign up</v-list-item-title>
+                      <v-list-item-title class="regular-poppins" @click="signup_user">Sign up</v-list-item-title>
                     </v-list-item>
                     <v-list-item v-if="!this.$auth.loggedIn">
-                      <v-list-item-title @click="signin_user">Log in</v-list-item-title>
+                      <v-list-item-title class="regular-poppins" @click="signin_user">Log in</v-list-item-title>
                     </v-list-item>
                     <v-list-item v-if="this.$auth.loggedIn">
-                      <v-list-item-title @click="goToAccount">Account</v-list-item-title>
+                      <v-list-item-title class="regular-poppins" @click="goToAccount">Account</v-list-item-title>
                     </v-list-item>
                     <v-list-item v-if="this.$auth.loggedIn">
-                      <v-list-item-title @click="logout">Log Out</v-list-item-title>
+                      <v-list-item-title class="regular-poppins" @click="logout">Log Out</v-list-item-title>
                     </v-list-item>
 
+                      </v-list-item-group>
                   </v-list>
                 </v-card>
               </v-menu>
@@ -117,7 +121,7 @@
         <Nuxt/>
       </v-container>
     </v-main>
-    <v-footer
+      <v-footer
       :absolute="!fixed"
       app
       color="#cecece"
@@ -126,53 +130,46 @@
         <v-row>
           <v-col cols="4">
             <v-list color="footer">
-              <v-subheader class="font-weight-black">ABOUT</v-subheader>
+              <v-subheader class="regular-poppins grey--text">ABOUT</v-subheader>
               <v-list-item-group
-
                 color="primary"
               >
-                <v-list-item>
-                  <v-list-item-title>How Codeyetu works</v-list-item-title>
+                <v-list-item dense>
+                  How Codeyetu works
                 </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Newsroom</v-list-item-title>
+                <v-list-item dense>
+                  Investors
                 </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Investors</v-list-item-title>
+                <v-list-item dense>
+                  Referrers
                 </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Referrers</v-list-item-title>
+                <v-list-item dense>
+                  Contacts
                 </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Careers</v-list-item-title>
+                <v-list-item dense>
+                  Privacy
                 </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Contacts</v-list-item-title>
-                </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Privacy</v-list-item-title>
-                </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Terms Of Use</v-list-item-title>
+                <v-list-item dense>
+                  Terms Of Use
                 </v-list-item>
               </v-list-item-group>
             </v-list>
           </v-col>
           <v-col cols="4">
             <v-list color="footer">
-              <v-subheader class="font-weight-black">BRAND OWNERS</v-subheader>
+              <v-subheader class="regular-poppins grey--text">BRAND OWNERS</v-subheader>
               <v-list-item-group
 
                 color="primary"
               >
-                <v-list-item>
-                  <v-list-item-title>How To Get Listed</v-list-item-title>
+                <v-list-item dense>
+                 How To Get Listed
                 </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Resources</v-list-item-title>
+                <v-list-item dense>
+                  Resources
                 </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Sales</v-list-item-title>
+                <v-list-item dense>
+                  Sales
                 </v-list-item>
 
               </v-list-item-group>
@@ -180,22 +177,22 @@
           </v-col>
           <v-col cols="4">
             <v-list color="footer">
-              <v-subheader class="font-weight-black">SUPPORT</v-subheader>
+              <v-subheader class="regular-poppins grey--text">SUPPORT</v-subheader>
               <v-list-item-group
 
                 color="primary"
               >
-                <v-list-item>
-                  <v-list-item-title>Our COVID-19 Response</v-list-item-title>
+                <v-list-item dense>
+                  Our COVID-19 Response
                 </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Help Center</v-list-item-title>
+                <v-list-item dense>
+                  Help Center
                 </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Cancellation options</v-list-item-title>
+                <v-list-item dense>
+                  Cancellation options
                 </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>Quality assurance</v-list-item-title>
+                <v-list-item dense>
+                  Quality assurance
                 </v-list-item>
               </v-list-item-group>
             </v-list>

@@ -2,23 +2,23 @@
   <v-autocomplete
     width="50%"
     rounded
-    class="rounded-pill pa-0"
+    class="rounded-pill pa-0 regular-poppins"
     background-color="white"
-    label="Which brand are you looking for?"
-    height="66"
+    label="Which brand are you looking for ?"
+    height="56"
     clearable
     v-model=keyword
     :search-input.sync="search_brands"
     :items="search_results"
   >
     <v-btn
-      color="red"
+      color="primary"
       fab
       elevation="0"
       class="ma-0 pa-0 white--text"
       slot="append"
     >
-      <v-icon dark x-large>
+      <v-icon dark large>
         mdi-magnify
       </v-icon>
     </v-btn>
@@ -59,3 +59,4 @@ export default {
   }
 }
 </script>
+

@@ -1,3 +1,16 @@
-body {
-    font-size: 16px;
+.regular-poppins{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+.medium-poppins{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+.light-poppins{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+.thin-poppins{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
 }

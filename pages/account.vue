@@ -1,7 +1,7 @@
 <template>
   <v-sheet elevation="0">
     <v-row style="min-height:400px;">
-      <v-col cols="8">
+      <v-col cols="8 light-poppins">
         <v-data-table
           :headers="headers"
           :items="account_referrals"

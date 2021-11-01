@@ -1,7 +1,7 @@
 <template>
   <v-sheet min-height="280">
     <div justify="center" align="center">
-        <div>Brand Title</div>
+       
 
     <v-expand-transition>
       <v-row v-if="!offers_loading" justify="center" align="center" style="background-color:#fff">
@@ -10,16 +10,16 @@
           <!-- TODO add card for coorporates -->
 
           <v-card elevation="5" class="rounded-xl" height="450" width="450">
-            <div class="d-flex flex-column justify-space-around" style="height:100%">
-              <div class="">
+            <div class="d-flex flex-column justify-space-around pa-5" style="height:100%">
+              <div class="regular-poppins">
                 <v-img class="center" height="200" width="200" aspect-ratio="16/9" contain
                        :src="`${$axios.defaults.baseURL}` + offer.brand.logo "></v-img>
-                <v-divider class="red mb-3" style="width:20%; border-width:2px;"></v-divider>
+                <v-divider class="primary mb-3" style="width:20%; border-width:2px;"></v-divider>
                 {{ offer.caption }}
               </div>
 
               <div class="mb-0">
-                <v-btn color="red" style="width:40%;" large class="white--text rounded-sm" @click.stop="refer(offer)">
+                <v-btn color="primary" style="width:40%;" large class="regular-poppins white--text rounded-sm" @click.stop="refer(offer)">
                   GET Ksh. {{ getreward(offer) }} /=
                 </v-btn>
               </div>
@@ -36,12 +36,7 @@
       align-content="center"
       justify="center"
     >
-      <v-col
-        class="text-subtitle-1 text-center"
-        xl="12" lg="12" md="12" xs="12" sm="12"
-      >
-        Getting your deals
-      </v-col>
+     
       <v-col xl="12" lg="12" md="12" xs="12" sm="12">
         <v-progress-linear
           color="deep-orange accent-4"

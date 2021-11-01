@@ -51,6 +51,7 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
+    '@nuxtjs/google-fonts',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -121,5 +122,16 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
+
+  googleFonts: {
+    preconnect: true,
+    display: 'swap',
+    families: {
+      'Poppins': true,
+      Poppins: {
+        wght: [300, 400,500],
+      },
+    }
+  }
 }

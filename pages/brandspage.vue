@@ -9,7 +9,7 @@
              <v-img class="center" height="200" width="200" aspect-ratio="16/9" contain :src="`${$axios.defaults.baseURL}` + brand.logo"></v-img>
             
            </div>
-           <v-card-title class="justify-center">
+           <v-card-title class="justify-center regular-poppins">
              {{brand.title}}
            </v-card-title>
          </v-card>
