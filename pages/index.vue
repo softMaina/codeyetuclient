@@ -117,9 +117,28 @@
           </div>
         </v-card>
       </v-col>
+       <v-snackbar
+      right
+      top
+      v-model=signin
+    >
+      Sign In to continue
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="white"
+          text
+          v-bind="attrs"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
       <ReferralModal :visible="dialog" @close="dialog=false"/>
 
       <CooporateModal :cooporate="cooporate" @close="cooporate=false"/>
+      <SignInModal  :visible="signin" @close="signin=false"/>
     </v-row>
   </div>
 </template>
@@ -130,6 +149,8 @@ import ProductCard from '../components/ProductCard.vue';
 import {mapGetters} from 'vuex';
 import ReferralModal from '../components/ReferralModal.vue';
 import CooporateModal from '../components/CooporateModal.vue';
+import SigninModal from '../components/SignInModal.vue';
+
 
 export default {
   name: 'index',
@@ -138,8 +159,9 @@ export default {
     return {
       dialog: false,
       offer: null,
-      cooporate: false
-
+      cooporate: false,
+      signin: false,
+      signup: false,
     }
   },
   components: {
@@ -150,6 +172,7 @@ export default {
   },
   computed: {
     ...mapGetters({
+      sigin: 'offers/signin',
       offers: 'offers/offers',
       offers_loading: 'offers/offers_loading'
     })
@@ -169,6 +192,11 @@ export default {
       return offer.offer_target * offer.offer_rate;
     },
     refer: function (offer) {
+      if(this.$auth.user === null){
+      
+        this.signin = true;
+        return;
+      }
       if (offer.c_to_b === false) {
         this.cooporate = true;
       } else {

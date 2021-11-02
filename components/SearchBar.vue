@@ -2,7 +2,7 @@
   <v-autocomplete
     width="50%"
     rounded
-    class="rounded-pill pa-0 regular-poppins"
+    class="rounded-pill pa-0 regular-poppins search"
     background-color="white"
     label="Which brand are you looking for ?"
     height="56"
@@ -15,10 +15,10 @@
       color="primary"
       fab
       elevation="0"
-      class="ma-0 pa-0 white--text"
+      class="white--text"
       slot="append"
     >
-      <v-icon dark large>
+      <v-icon dark>
         mdi-magnify
       </v-icon>
     </v-btn>
@@ -60,3 +60,26 @@ export default {
 }
 </script>
 
+<style  scoped>
+
+ .search >>> .v-label{
+  position: absolute !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 30%;
+  text-align: center;
+
+ }
+ .search >>> .v-label--active {
+   transform: translateY(-18px) scale(.75) translateX(-27%);
+   color: #f8a932;
+ }
+
+ .search >>> .v-btn--fab.v-size--default{
+   height: 50px;
+   width: 50px;
+ }
+
+</style>

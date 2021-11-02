@@ -81,7 +81,7 @@
         <v-toolbar elevation="0" class="mt-7" color="transparent">
 
           <v-row justify="center" align="center">
-            <v-col xl="8" lg="8" md="8" sm="12" xm="12">
+            <v-col xl="5" lg="5" md="5" sm="10" xm="10">
               <SearchBar/>
             </v-col>
 

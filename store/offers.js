@@ -9,6 +9,7 @@ export const state = () => ({
   offers_loading: false,
   brands_loading: true,
   snackbar: false,
+  signin: false,
   search_results: [],
 })
 
@@ -20,6 +21,7 @@ export const getters = {
   referrals: state => state.referrals,
   offers_loading: state => state.offers_loading,
   snackbar: state => state.snackbar,
+  signin: state => state.signin,
   search_results: state => state.search_results,
   brands_loading: state => state.brands_loading,
   account_info: state => state.account_info,
@@ -47,6 +49,9 @@ export const mutations = {
   },
   setSnackbar(state) {
     state.snackbar = !state.snackbar
+  },
+  setSignin(state) {
+    state.signin = !state.signin
   },
   setSearchResults(state, payload) {
     state.search_results = payload.search_results

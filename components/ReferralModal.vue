@@ -1,19 +1,19 @@
 <template>
 <v-dialog v-model="show" max-width="700px">
-  <v-card class="rounded-xl">
+  <v-card class="rounded-xl regular-poppins">
     <div class="d-flex justify-center align-center primary">
       <v-card-title class="white--text">
          Referral Details
       </v-card-title>
     </div>
     <div class="ma-2 pa-2">
-      <v-data-table
+      <v-data-table v-if="referrals.length > 0"
         :headers="headers"
         :items="referrals"
         class="elevation-0 mb-3"
         hide-default-footer
       ></v-data-table>
-      <v-divider class="primary"></v-divider>
+      <v-divider class="primary" v-if="referrals.length > 0"></v-divider>
       <v-form v-model="valid">
         <v-container>
           <v-row>
