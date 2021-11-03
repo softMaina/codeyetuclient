@@ -42,6 +42,7 @@ export const mutations = {
 
 export const actions = {
   async signup({dispatch, commit}, data) {
+    console.log(data);
     await this.$axios.post('/auth/register', data).then((res) => {
       let accessToken = res.data.auth_token
       localStorage.setItem("bearerToken", accessToken)
