@@ -1,8 +1,8 @@
 <template>
   <v-app>
      <v-app-bar app fixed dense class="primary" height="100">
-   
-           
+
+
       <v-container fluid class="mt-0 pa-0" style="width:89%">
         <v-container fluid class="ma-0 pa-0">
           <v-row justify="center" align="center" class="ma-0 pa-0">
@@ -76,7 +76,7 @@
           </v-row>
         </v-container>
       </v-container>
-    
+
    </v-app-bar>
     <v-navigation-drawer
       v-model="drawer"
@@ -121,86 +121,7 @@
         <Nuxt/>
       </v-container>
     </v-main>
-      <v-footer
-      :absolute="!fixed"
-      app
-      color="#cecece"
-    >
-      <v-container fluid style="width:89%">
-        <v-row>
-          <v-col cols="4">
-            <v-list color="footer">
-              <v-subheader class="regular-poppins grey--text">ABOUT</v-subheader>
-              <v-list-item-group
-                color="primary"
-              >
-                <v-list-item dense>
-                  How Codeyetu works
-                </v-list-item>
-                <v-list-item dense>
-                  Investors
-                </v-list-item>
-                <v-list-item dense>
-                  Referrers
-                </v-list-item>
-                <v-list-item dense>
-                  Contacts
-                </v-list-item>
-                <v-list-item dense>
-                  Privacy
-                </v-list-item>
-                <v-list-item dense>
-                  Terms Of Use
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-          </v-col>
-          <v-col cols="4">
-            <v-list color="footer">
-              <v-subheader class="regular-poppins grey--text">BRAND OWNERS</v-subheader>
-              <v-list-item-group
-
-                color="primary"
-              >
-                <v-list-item dense>
-                 How To Get Listed
-                </v-list-item>
-                <v-list-item dense>
-                  Resources
-                </v-list-item>
-                <v-list-item dense>
-                  Sales
-                </v-list-item>
-
-              </v-list-item-group>
-            </v-list>
-          </v-col>
-          <v-col cols="4">
-            <v-list color="footer">
-              <v-subheader class="regular-poppins grey--text">SUPPORT</v-subheader>
-              <v-list-item-group
-
-                color="primary"
-              >
-                <v-list-item dense>
-                  Our COVID-19 Response
-                </v-list-item>
-                <v-list-item dense>
-                  Help Center
-                </v-list-item>
-                <v-list-item dense>
-                  Cancellation options
-                </v-list-item>
-                <v-list-item dense>
-                  Quality assurance
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-          </v-col>
-
-        </v-row>
-      </v-container>
-    </v-footer>
+    <Footer/>
     <v-snackbar
       right
       top
@@ -228,6 +149,7 @@
 import SignUpModal from '../components/SignUpModal.vue';
 import SignInModal from '../components/SignInModal.vue';
 import {mapGetters} from 'vuex'
+import Footer from "~/components/Footer";
 
 export default {
   name: 'default',
@@ -263,7 +185,7 @@ export default {
       }
     }
   },
-  components: {SignUpModal, SignInModal},
+  components: {SignUpModal, SignInModal, Footer},
   methods: {
     signin_user: function () {
       this.signin = true

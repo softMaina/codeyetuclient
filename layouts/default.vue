@@ -13,15 +13,15 @@
             <v-col cols="8" justify="center" align="center" v-if="!mini">
               <ul id="menu">
                 <li class="white--text  mb-2 light-poppins">
-                  <NuxtLink to="/brandspage" class="white--text" style="text-decoration: none; color: inherit;">Brands
+                  <NuxtLink to="/brands" class="white--text" style="text-decoration: none; color: inherit;">Brands
                   </NuxtLink>
                 </li>
                 <li class="white--text  mb-2 light-poppins">
-                  <NuxtLink to="/account" class="white--text" style="text-decoration: none; color: inherit;">Referrer
+                  <NuxtLink to="/earn" class="white--text" style="text-decoration: none; color: inherit;">Earn
                   </NuxtLink>
                 </li>
                 <li class="white--text mb-2 light-poppins">
-                  <NuxtLink to="/support" class="white--text" style="text-decoration: none; color: inherit;">Support
+                  <NuxtLink to="/earn" class="white--text" style="text-decoration: none; color: inherit;">Support
                   </NuxtLink>
                 </li>
               </ul>
@@ -134,86 +134,8 @@
         <Nuxt/>
       </v-container>
     </v-main>
-    <v-footer
-      :absolute="!fixed"
-      app
-      color="#cecece"
-    >
-      <v-container fluid style="width:89%">
-        <v-row>
-          <v-col cols="4">
-            <v-list color="footer">
-              <v-subheader class="regular-poppins grey--text">ABOUT</v-subheader>
-              <v-list-item-group
-                color="primary"
-              >
-                <v-list-item dense>
-                  How Codeyetu works
-                </v-list-item>
-                <v-list-item dense>
-                  Investors
-                </v-list-item>
-                <v-list-item dense>
-                  Referrers
-                </v-list-item>
-                <v-list-item dense>
-                  Contacts
-                </v-list-item>
-                <v-list-item dense>
-                  Privacy
-                </v-list-item>
-                <v-list-item dense>
-                  Terms Of Use
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-          </v-col>
-          <v-col cols="4">
-            <v-list color="footer">
-              <v-subheader class="regular-poppins grey--text">BRAND OWNERS</v-subheader>
-              <v-list-item-group
-
-                color="primary"
-              >
-                <v-list-item dense>
-                 How To Get Listed
-                </v-list-item>
-                <v-list-item dense>
-                  Resources
-                </v-list-item>
-                <v-list-item dense>
-                  Sales
-                </v-list-item>
-
-              </v-list-item-group>
-            </v-list>
-          </v-col>
-          <v-col cols="4">
-            <v-list color="footer">
-              <v-subheader class="regular-poppins grey--text">SUPPORT</v-subheader>
-              <v-list-item-group
-
-                color="primary"
-              >
-                <v-list-item dense>
-                  Our COVID-19 Response
-                </v-list-item>
-                <v-list-item dense>
-                  Help Center
-                </v-list-item>
-                <v-list-item dense>
-                  Cancellation options
-                </v-list-item>
-                <v-list-item dense>
-                  Quality assurance
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-          </v-col>
-
-        </v-row>
-      </v-container>
-    </v-footer>
+<!--      footer-->
+    <Footer/>
     <v-snackbar
       right
       top
@@ -240,6 +162,7 @@
 <script>
 import SignUpModal from '../components/SignUpModal.vue';
 import SignInModal from '../components/SignInModal.vue';
+import Footer from '../components/Footer.vue';
 import {mapGetters} from 'vuex'
 
 export default {
@@ -276,7 +199,7 @@ export default {
       }
     }
   },
-  components: {SignUpModal, SignInModal},
+  components: {SignUpModal, SignInModal, Footer},
   methods: {
     signin_user: function () {
       this.signin = true
