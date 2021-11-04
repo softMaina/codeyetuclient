@@ -45,7 +45,7 @@
               color="primary"
             >
               <v-list-item dense>
-                <NuxtLink to="/brands">
+                <NuxtLink to="/brands"  class="footer-nav">
                 How To Get Listed
                 </NuxtLink>
               </v-list-item>

@@ -21,3 +21,10 @@
 .text-info-sub-headers{
   font-size: 23px;
 }
+
+.footer-nav{
+  text-decoration: none;
+}
+.footer-nav:hover{
+  text-decoration: underline;
+}
