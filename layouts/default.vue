@@ -13,7 +13,7 @@
             <v-col cols="8" justify="center" align="center" v-if="!mini">
               <ul id="menu">
                 <li class="white--text  mb-2 light-poppins">
-                  <NuxtLink to="/brands" class="white--text" style="text-decoration: none; color: inherit;">Brands
+                  <NuxtLink to="/brandspage" class="white--text" style="text-decoration: none; color: inherit;">Brands
                   </NuxtLink>
                 </li>
                 <li class="white--text  mb-2 light-poppins">
@@ -21,7 +21,7 @@
                   </NuxtLink>
                 </li>
                 <li class="white--text mb-2 light-poppins">
-                  <NuxtLink to="/earn" class="white--text" style="text-decoration: none; color: inherit;">Support
+                  <NuxtLink to="/" class="white--text" style="text-decoration: none; color: inherit;">Support
                   </NuxtLink>
                 </li>
               </ul>

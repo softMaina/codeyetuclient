@@ -18,12 +18,15 @@
         </div>
       </v-col>
       <v-col cols="6">
-
+        <v-img src="images/forbrand.jpg"></v-img>
       </v-col>
     </v-row>
 
     <!--    refer-->
     <v-row>
+      <v-col cols="6">
+        <v-img src="images/earnpage.png"></v-img>
+      </v-col>
       <v-col cols="6">
         <div class="medium-poppins">
           2. Refer
@@ -45,6 +48,9 @@
           You’ve just earned amazing rewards! Whenever your referrals use the brand your account is credited with gift
           vouchers, cash back rewards and more.
         </div>
+      </v-col>
+      <v-col cols="6">
+        <v-img src="images/forbrand.png"></v-img>
       </v-col>
 
     </v-row>
