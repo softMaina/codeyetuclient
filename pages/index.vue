@@ -1,5 +1,5 @@
 <template>
-  <div justify="center" align="center">
+  <div class="mt-10 mb-16" justify="center" align="center">
 
     <v-expand-transition>
       <v-row v-if="!offers_loading" justify="center" align="center" style="background-color:#fff">
@@ -193,7 +193,7 @@ export default {
     },
     refer: function (offer) {
       if(this.$auth.user === null){
-      
+
         this.signin = true;
         return;
       }
