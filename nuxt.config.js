@@ -59,6 +59,9 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
   ],
+  script: [
+    { src: 'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js' }
+  ],
 
   axios: {
     baseURL: 'https://api.codeyetu.com'
