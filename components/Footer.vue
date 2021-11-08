@@ -5,33 +5,42 @@
     color="#cecece"
   >
     <v-container fluid style="width:89%">
-      <v-row>
+      <v-row class="airbnb">
         <v-col cols="4">
           <v-list color="footer">
             <v-subheader class="regular-poppins grey--text">ABOUT</v-subheader>
             <v-list-item-group
-              color="primary"
+
+              active-class="bg-active"
             >
               <v-list-item dense>
-                <NuxtLink to="/earn">
-                How Codeyetu works
+                <NuxtLink to="/earn" class="footer-nav">
+                  How Codeyetu works
                 </NuxtLink>
               </v-list-item>
               <v-list-item dense>
-                Investors
+                <NuxtLink to="/earn" class="footer-nav">
+                  Investors
+                </NuxtLink>
               </v-list-item>
               <v-list-item dense>
-                Referrers
+                <NuxtLink to="/earn" class="footer-nav">
+                  Referrers
+                </NuxtLink>
               </v-list-item>
               <v-list-item dense>
-                Contacts
+                <NuxtLink to="/earn" class="footer-nav">
+                  Contacts
+                </NuxtLink>
               </v-list-item>
               <v-list-item dense>
-                Privacy
+                <NuxtLink to="/privacy" class="footer-nav">
+                  Privacy
+                </NuxtLink>
               </v-list-item>
               <v-list-item dense>
-                <NuxtLink to="/terms">
-                Terms Of Use
+                <NuxtLink to="/terms" class="footer-nav">
+                  Terms Of Use
                 </NuxtLink>
               </v-list-item>
             </v-list-item-group>
@@ -41,18 +50,18 @@
           <v-list color="footer">
             <v-subheader class="regular-poppins grey--text">BRAND OWNERS</v-subheader>
             <v-list-item-group
+              active-class="bg-active"
 
-              color="primary"
             >
               <v-list-item dense>
-                <NuxtLink to="/brands"  class="footer-nav">
-                How To Get Listed
+                <NuxtLink to="/brands" class="footer-nav">
+                  How To Get Listed
                 </NuxtLink>
               </v-list-item>
-              <v-list-item dense>
+              <v-list-item href="#" class="footer-nav" dense>
                 Resources
               </v-list-item>
-              <v-list-item dense>
+              <v-list-item href="#" class="footer-nav" dense>
                 Sales
               </v-list-item>
 
@@ -64,18 +73,21 @@
             <v-subheader class="regular-poppins grey--text">SUPPORT</v-subheader>
             <v-list-item-group
 
-              color="primary"
+              active-class="bg-active"
             >
-              <v-list-item dense>
+              <v-list-item dense
+                           href="#" class="footer-nav"
+                           active-class="bg-active"
+              >
                 Our COVID-19 Response
               </v-list-item>
-              <v-list-item dense>
+              <v-list-item href="#" class="footer-nav" dense>
                 Help Center
               </v-list-item>
-              <v-list-item dense>
+              <v-list-item href="#" class="footer-nav" dense>
                 Cancellation options
               </v-list-item>
-              <v-list-item dense>
+              <v-list-item href="#" class="footer-nav" dense>
                 Quality assurance
               </v-list-item>
             </v-list-item-group>
@@ -94,5 +106,37 @@ export default {
 </script>
 
 <style scoped>
+.airbnb {
 
+}
+
+.footer-nav {
+  text-decoration: none;
+}
+
+.airbnb >>> .v-list-item {
+  background-color: #cecece !important;
+}
+
+.airbnb >>> .v-list-item:hover {
+  background-color: unset !important;
+  color: unset !important;
+}
+
+.bg-active {
+  background-color: #cecece;
+}
+
+a {
+  color: grey !important;
+}
+
+a:hover {
+  background-color: #cecece !important;
+}
+
+.footer-nav:hover {
+  text-decoration: underline;
+  background-color: #cecece !important;
+}
 </style>
