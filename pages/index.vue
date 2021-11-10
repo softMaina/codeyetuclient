@@ -56,7 +56,7 @@
               <p class="pro-text light-poppins text-left">Out</p>
               <p class="text-left regular-poppins">Earn extra income and rewards by referring restaurants, hotels, socials and events to
                 your friends</p>
-              <v-btn class="regular-poppins">
+              <v-btn class="regular-poppins" @click="getBrandCategory('out')">
                 Earn More
               </v-btn>
             </div>
@@ -74,7 +74,7 @@
               <p class="pro-text light-poppins text-left">Services</p>
               <p class="text-left regular-poppins">Earn extra income and rewards by referring businesses, professionals and experts to
                 your friends</p>
-              <v-btn class="regular-poppins">
+              <v-btn class="regular-poppins" @click="getBrandCategory('professional')">
                 Earn More
               </v-btn>
             </div>
@@ -92,7 +92,7 @@
               <p class="pro-text light-poppins text-left">Items</p>
               <p class="text-left regular-poppins">Earn extra income and rewards by referring electronic brands, retailers and household
                 brands to your friends</p>
-              <v-btn class="regular-poppins">
+              <v-btn class="regular-poppins" @click="getBrandCategory('household')">
                 Earn More
               </v-btn>
             </div>
@@ -110,7 +110,7 @@
               <p class="pro-text light-poppins text-left">Services</p>
               <p class="text-left regular-poppins">Earn extra income and rewards by referring service centres, car dealers and other
                 services to your friends</p>
-              <v-btn class="regular-poppins">
+              <v-btn class="regular-poppins" @click="getBrandCategory('auto')">
                 Earn More
               </v-btn>
             </div>
@@ -205,7 +205,9 @@ export default {
 
     },
 
-
+    getBrandCategory:function(category) {
+        this.$router.push('/brandspage');
+    }
   }
 }
 </script>
