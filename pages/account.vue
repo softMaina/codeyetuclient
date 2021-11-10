@@ -25,7 +25,7 @@
       <v-col cols="4">
         <v-card>
           <v-card-title>Total Earnings</v-card-title>
-          <v-card-text>Ksh </v-card-text>
+          <v-card-text>Ksh {{total}}</v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -62,6 +62,7 @@ export default {
      ...mapGetters({
       account_info: 'offers/account_info',
       account_referrals: 'offers/account_referrals',
+      total: 'offers/total',
      
     })
   },

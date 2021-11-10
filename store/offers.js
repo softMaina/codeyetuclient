@@ -11,6 +11,7 @@ export const state = () => ({
   snackbar: false,
   signin: false,
   search_results: [],
+  total: 0,
 })
 
 export const getters = {
@@ -26,6 +27,7 @@ export const getters = {
   brands_loading: state => state.brands_loading,
   account_info: state => state.account_info,
   account_referrals: state => state.account_referrals,
+  total: state => state.total,
 }
 
 export const mutations = {
@@ -62,6 +64,9 @@ export const mutations = {
   setAccountReferrals(state, payload){
     state.account_referrals = payload.account_referrals
   },
+  setTotal(state, payload){
+    state.total = payload.total
+  }
 
 }
 
@@ -165,6 +170,10 @@ export const actions = {
       commit({
         type:'setAccountReferrals',
         account_referrals: res.data["results"]
+      })
+      commit({
+        type: 'setTotal',
+        total: res.data["total"]
       })
     })
   }
