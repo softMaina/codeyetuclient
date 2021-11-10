@@ -64,7 +64,7 @@ export default {
   ],
 
   axios: {
-    baseURL: 'https://api.codeyetu.com'
+     baseURL: 'https://api.codeyetu.com'
     //baseURL: 'http://159.223.28.235:8080',
     //baseURL: 'http://localhost:5000',
   },
