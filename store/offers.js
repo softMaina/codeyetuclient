@@ -2,6 +2,7 @@ export const state = () => ({
   offers: [],
   brands: [],
   referrals: [],
+  search_results: [],
   user: null,
   account_info: null,
   account_referrals: [],
@@ -10,7 +11,6 @@ export const state = () => ({
   brands_loading: true,
   snackbar: false,
   signin: false,
-  search_results: [],
   total: 0,
 })
 
@@ -146,20 +146,21 @@ export const actions = {
 
   async referPersons({commit, dispatch}, data) {
     await this.$axios.post('/api/referrals', data).then((res) => {
- 
+
       commit({
         type: 'setSnackbar'
       })
     })
   },
 
-  async search({commit, dispatch}, data) {
+  async search({commit, state}, data) {
     let search_string = '/api/search?keyword=' + data;
     await this.$axios.get(search_string).then((res) => {
       commit({
         type: 'setSearchResults',
         search_results: res.data["results"]
-      })
+      });
+      console.log(state.search_results.length);
     })
   },
 

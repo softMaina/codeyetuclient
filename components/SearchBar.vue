@@ -8,8 +8,10 @@
     height="56"
     clearable
     v-model=keyword
-    :search-input.sync="search_brands"
+    :search-input.sync=search_brands
     :items="search_results"
+    item-text="title"
+    item-value="id"
   >
     <v-btn
       color="primary"
@@ -26,7 +28,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import {mapGetters, mapActions, mapState} from 'vuex';
 
 export default {
   name: "SearchBar",
@@ -38,14 +40,15 @@ export default {
   },
   computed: {
     ...mapGetters({
-      search_results: 'offers/search_results',
+      search_results: 'offers/search_results'
     })
   },
   watch: {
     async search_brands(val) {
+      setTimeout(async ()=>{
+          await this.$store.dispatch('offers/search', val)
+      },1000)
 
-
-      //await this.$store.dispatch('offers/search', val)
       if (val === this.keyword) {
         this.navigateToBrands(val)
       }
@@ -55,7 +58,7 @@ export default {
   methods: {
     navigateToBrands(val) {
       this.$router.push('/brandspage')
-    },
+    }
   }
 }
 </script>
@@ -80,6 +83,15 @@ export default {
  .search >>> .v-btn--fab.v-size--default{
    height: 50px;
    width: 50px;
+ }
+
+ .v-list-item--highlighted{
+   background-color: white !important;
+   color: yellow;
+ }
+
+ .v-list-item__title {
+   color: red !important;
  }
 
 </style>

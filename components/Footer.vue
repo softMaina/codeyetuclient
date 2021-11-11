@@ -128,7 +128,7 @@ export default {
 }
 
 a {
-  color: grey !important;
+  color: #4b4c4d !important;
 }
 
 a:hover {

@@ -1,5 +1,5 @@
 <template>
-<v-dialog v-model="show" max-width="700px">
+<v-dialog v-model="show" max-width="880px">
   <v-card class="rounded-xl regular-poppins">
     <div class="d-flex justify-center align-center primary">
       <v-card-title class="white--text">
@@ -25,7 +25,6 @@
             >
           <v-text-field
             v-model="company"
-            outlined
             label="Company Name"
             required
           ></v-text-field>
@@ -37,7 +36,6 @@
             >
           <v-text-field
             v-model="industry"
-            outlined
             label="Industry"
             required
           ></v-text-field>
@@ -60,7 +58,6 @@
             >
           <v-text-field
             v-model="contact_person"
-            outlined
             label="Contact Person"
             required
           ></v-text-field>
@@ -70,12 +67,8 @@
           cols="12"
           md="5"
         >
-          <v-text-field
-            v-model="director_phone"
-            outlined
-            label="Director Phone Number"
-            required
-          ></v-text-field>
+         
+          <vue-tel-input-vuetify v-model="director_phone"  label="Director Phone Number" :onlyCountries="countries" mode="international" ></vue-tel-input-vuetify>
         </v-col>
 
          <v-col
@@ -84,7 +77,6 @@
             >
           <v-text-field
             v-model="email"
-            outlined
             label="Email"
             required
           ></v-text-field>
@@ -96,7 +88,6 @@
             >
           <v-text-field
             v-model="service"
-            outlined
             label="Services"
             required
           ></v-text-field>
@@ -108,7 +99,6 @@
             >
           <v-text-field
             v-model="business_location"
-            outlined
             label="Business Location"
             required
           ></v-text-field>
@@ -130,7 +120,7 @@
       </v-form>
       <v-card-actions justify="end" align="end">
         <template v-if="this.$auth.loggedIn">
-          <v-btn large block color="secondary" @click.stop="refer">Refer</v-btn>
+          <v-btn large block color="secondary" :disabled="referrals.length < 1" @click.stop="refer">Refer</v-btn>
         </template>
         <template v-if="!this.$auth.loggedIn">
           <p>You need to be logged in to refer</p>
@@ -144,6 +134,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import VueTelInputVuetify from "vue-tel-input-vuetify/lib/vue-tel-input-vuetify.vue";
 
 export default {
   name: "CooporateModal",
@@ -151,6 +142,7 @@ export default {
   props: ['cooporate'],
   data: () => ({
     employees: ['1-9', '10-19', '20 - 100'],
+    countries: ["KE"],
     referrals: [],
     valid: false,
     company: '',
@@ -178,6 +170,9 @@ export default {
 
     ],
     }),
+     components: {
+      VueTelInputVuetify
+    },
   computed: {
     ...mapGetters({
           clicked_offer: 'offers/clicked_offer'

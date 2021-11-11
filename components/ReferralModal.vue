@@ -1,5 +1,5 @@
 <template>
-<v-dialog v-model="show" max-width="700px">
+<v-dialog v-model="show" max-width="880px">
   <v-card class="rounded-xl regular-poppins">
     <div class="d-flex justify-center align-center primary">
       <v-card-title class="white--text">
@@ -23,8 +23,9 @@
             >
           <v-text-field
             v-model="name"
-            outlined
+            
             label="Name"
+            :rules="nameRules"
             required
           ></v-text-field>
         </v-col>
@@ -33,12 +34,8 @@
           cols="12"
           md="5"
         >
-          <v-text-field
-            v-model="phone"
-            outlined
-            label="Phone Number"
-            required
-          ></v-text-field>
+         
+          <vue-tel-input-vuetify v-model="phone"  :onlyCountries="countries" mode="international" ></vue-tel-input-vuetify>
         </v-col>
         <v-col cols="12" md="2">
           <v-btn
@@ -56,7 +53,7 @@
       </v-form>
       <v-card-actions justify="end" align="end">
         <template v-if="this.$auth.loggedIn">
-          <v-btn large block color="secondary" @click.stop="refer">Refer</v-btn>
+          <v-btn large block color="secondary" :disabled="referrals.length < 1"  @click.stop="refer">Refer</v-btn>
         </template>
         <template v-if="!this.$auth.loggedIn">
           <p>You need to be logged in to refer someone</p>
@@ -69,7 +66,8 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters} from 'vuex';
+import VueTelInputVuetify from "vue-tel-input-vuetify/lib/vue-tel-input-vuetify.vue";
 
 export default {
   name: "ReferralModal",
@@ -77,9 +75,16 @@ export default {
   props: ['visible'],
   data: () => ({
     referrals: [],
+    countries: ["KE"],
     valid: false,
     name: '',
+    nameRules: [
+        v => !!v || 'Name is required',
+      ],
     phone: '',
+    phoneRules: [
+      v => !!v || 'Phone is required',
+    ],
     headers: [
       {
         text: 'Name',
@@ -96,6 +101,9 @@ export default {
 
     ],
     }),
+    components: {
+      VueTelInputVuetify
+    },
   computed: {
     ...mapGetters({
           clicked_offer: 'offers/clicked_offer'
@@ -129,7 +137,9 @@ export default {
     async refer(){
 
       // dispatch an action to send referred customers to server
+      if(this.referrals.length > 0){
      await this.$store.dispatch('offers/referPersons', this.referrals)
+      }
      
     }
   }

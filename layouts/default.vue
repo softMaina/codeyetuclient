@@ -162,6 +162,7 @@
 <script>
 import SignUpModal from '../components/SignUpModal.vue';
 import SignInModal from '../components/SignInModal.vue';
+import SearchBar from '../components/SearchBar.vue';
 import Footer from '../components/Footer.vue';
 import {mapGetters} from 'vuex'
 
@@ -199,7 +200,7 @@ export default {
       }
     }
   },
-  components: {SignUpModal, SignInModal, Footer},
+  components: {SignUpModal, SignInModal, Footer, SearchBar},
   methods: {
     signin_user: function () {
       this.signin = true
