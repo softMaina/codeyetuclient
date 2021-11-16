@@ -23,7 +23,7 @@
             >
           <v-text-field
             v-model="name"
-            
+
             label="Name"
             :rules="nameRules"
             required
@@ -34,7 +34,7 @@
           cols="12"
           md="5"
         >
-         
+
           <vue-tel-input-vuetify v-model="phone"  :onlyCountries="countries" mode="international" ></vue-tel-input-vuetify>
         </v-col>
         <v-col cols="12" md="2">
@@ -79,11 +79,10 @@ export default {
     valid: false,
     name: '',
     nameRules: [
-        v => !!v || 'Name is required',
+
       ],
     phone: '',
     phoneRules: [
-      v => !!v || 'Phone is required',
     ],
     headers: [
       {
@@ -140,7 +139,7 @@ export default {
       if(this.referrals.length > 0){
      await this.$store.dispatch('offers/referPersons', this.referrals)
       }
-     
+
     }
   }
 }
