@@ -5,7 +5,7 @@
       <v-row v-if="!offers_loading" justify="center" align="center" style="background-color:#fff">
 
         <v-col xl="4" lg="4" md="6" xs="12" sm="12" v-for="offer in offers" :key="offer.offer_id">
-          <!-- TODO add card for coorporates -->
+
 
           <v-card elevation="5" class="rounded-xl" height="450" width="450">
             <div class="d-flex flex-column justify-space-around pa-5" style="height:100%">
@@ -149,7 +149,7 @@ import ProductCard from '../components/ProductCard.vue';
 import {mapGetters} from 'vuex';
 import ReferralModal from '../components/ReferralModal.vue';
 import CooporateModal from '../components/CooporateModal.vue';
-import SigninModal from '../components/SignInModal.vue';
+import SignInModal from '../components/SignInModal.vue';
 
 
 export default {
@@ -168,7 +168,8 @@ export default {
     ImageCard,
     ProductCard,
     ReferralModal,
-    CooporateModal
+    CooporateModal,
+    SignInModal
   },
   computed: {
     ...mapGetters({

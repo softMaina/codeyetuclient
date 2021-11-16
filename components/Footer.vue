@@ -1,6 +1,6 @@
 <template>
   <v-footer
-    :absolute="!fixed"
+    :absolute="true"
     app
     color="#cecece"
   >
