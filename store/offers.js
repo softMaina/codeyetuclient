@@ -12,6 +12,7 @@ export const state = () => ({
   snackbar: false,
   signin: false,
   total: 0,
+  current_offer: null,
 })
 
 export const getters = {
@@ -41,7 +42,7 @@ export const mutations = {
     state.referrals = payload.referrals
   },
   setClickedOffer(state, payload) {
-    state.offer = payload.offer
+    state.clicked_offer = payload.offer
   },
   setOffersLoading(state) {
     state.offers_loading = !state.offers_loading
@@ -66,7 +67,7 @@ export const mutations = {
   },
   setTotal(state, payload){
     state.total = payload.total
-  }
+  },
 
 }
 

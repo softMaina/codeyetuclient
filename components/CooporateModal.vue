@@ -67,7 +67,7 @@
           cols="12"
           md="5"
         >
-         
+
           <vue-tel-input-vuetify v-model="director_phone"  label="Director Phone Number" :onlyCountries="countries" mode="international" ></vue-tel-input-vuetify>
         </v-col>
 
@@ -190,10 +190,9 @@ export default {
   },
   methods: {
     add(){
-        let user_id = this.$auth.user.user_id
-    
+        let user_id = this.$auth.user.user_id;
       let person = {
-        'offer_id': 1,
+        'offer_id': this.clicked_offer.offer_id,
         "name":this.contact_person,
         "phone":this.director_phone,
         'referred_name': this.contact_person,
@@ -207,7 +206,7 @@ export default {
         "user_id": user_id.toString()
       };
       this.referrals.push(person);
-  
+    console.log(this.referrals);
        this.company= '',
     this.industry= '',
     this.no_of_employees= '',
