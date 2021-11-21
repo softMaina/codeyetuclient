@@ -1,7 +1,7 @@
 <template>
   <v-sheet elevation="0">
     <v-row style="min-height:400px;">
-      <v-col cols="8 light-poppins">
+      <v-col cols="8 regular-poppins">
         <v-data-table
           :headers="headers"
           :items="account_referrals"
@@ -20,12 +20,37 @@
               <v-spacer></v-spacer>
             </v-toolbar>
           </template>
+          <template v-slot:item.is_used="{ item }">
+            <v-chip
+              color="green"
+              dark
+              v-if="item.is_used"
+            >
+              Used
+            </v-chip>
+            <v-chip
+              color="green"
+              dark
+              v-if="!item.is_used"
+            >
+              Pending
+            </v-chip>
+          </template>
+          <template v-slot:item.date_sent="{item}">
+            {{ $moment(item.date_sent).calendar() }}
+          </template>
         </v-data-table>
       </v-col>
       <v-col cols="4">
         <v-card>
-          <v-card-title>Total Earnings</v-card-title>
-          <v-card-text>Ksh {{total}}</v-card-text>
+          <v-card-title class="medium-poppins">Total Earnings</v-card-title>
+          <v-card-text class="regular-poppins">Ksh {{total}}</v-card-text>
+
+          <v-card-actions>
+            <v-btn class="green white--text regular-poppins" block>
+              Withdraw to M-PESA
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
@@ -46,10 +71,10 @@ export default {
         sortable: false,
         value: 'referred_name',
       },
-      {text: 'Offer', value: 'offer.caption'},
+      {text: 'Offer', value: 'offer.caption', sortable: false},
       {text: 'Date', value: 'date_sent'},
-      {text: 'Reward', value: 'offer.offer_rate'},
-      {text: 'Used', value: 'is_used'},
+      {text: 'Reward', value: 'offer.offer_rate', sortable: false},
+      {text: 'Status', value: 'is_used', sortable: false},
     ],
     editedIndex: -1,
 
@@ -63,7 +88,7 @@ export default {
       account_info: 'offers/account_info',
       account_referrals: 'offers/account_referrals',
       total: 'offers/total',
-     
+
     })
   },
 

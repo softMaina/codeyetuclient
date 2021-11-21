@@ -52,6 +52,7 @@ export default {
     '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/moment',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

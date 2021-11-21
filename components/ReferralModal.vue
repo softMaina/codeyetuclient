@@ -42,6 +42,7 @@
             @click="add"
             fab
             class="primary"
+            v-if="this.$auth.loggedIn"
           >
             <v-icon>
               mdi-plus
