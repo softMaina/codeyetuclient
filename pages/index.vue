@@ -186,13 +186,14 @@ export default {
       this.$store.dispatch('offers/fetchOffers');
     },
     getreward(offer) {
-      this.$store.commit({
-        type: 'offers/setClickedOffer',
-        offer: offer
-      })
+
       return offer.offer_target * offer.offer_rate;
     },
     refer: function (offer) {
+      this.$store.commit({
+        type: 'offers/setClickedOffer',
+        offer: offer
+      });
       if(this.$auth.user === null){
 
         this.signin = true;

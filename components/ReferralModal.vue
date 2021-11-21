@@ -122,9 +122,8 @@ export default {
   methods: {
     add(){
       let user_id = this.$auth.user.user_id
-      console.log(user_id.toString())
       let person = {
-        'offer_id': 1,
+        'offer_id': this.clicked_offer.offer_id,
         'name': this.name,
         'phone': this.phone,
         'user_id': user_id.toString(),
