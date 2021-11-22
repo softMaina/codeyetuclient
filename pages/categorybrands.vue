@@ -2,10 +2,10 @@
   <v-sheet min-height="280">
 
 
-    <v-expand-transition>
+    <v-expand-transition >
 
 
-      <v-row class="mt-16 mb-16">
+      <v-row class="mt-16 mb-16" v-if="brands.length !== 0">
         <v-col xl="4" lg="4" md="4" sm="2" xs="2" v-for="brand in brands" :key="brand.brand_id">
           <v-card class="rounded-xl" elevation="2" @click.stop="getBrand(brand.brand_id)">
             <div class="d-flex flex-row justify-center" style="height:100%">
@@ -22,7 +22,13 @@
         </v-col>
       </v-row>
 
+      <v-row class="mt-16 mb-16" v-if="brands.length === 0">
+        <p>This brand doesn't have offers as of now</p>
+      </v-row>
+
     </v-expand-transition>
+
+
 
   </v-sheet>
 </template>
@@ -30,16 +36,13 @@
 import {mapGetters} from 'vuex'
 
 export default {
-  name: "brandspage",
+  name: "categorybrands",
   layout: "main",
   auth: false,
   data() {
     return {}
   },
-  created() {
 
-   this.getBrands();
-  },
   computed: {
     ...mapGetters({
       brands: 'offers/brands',

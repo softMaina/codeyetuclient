@@ -54,7 +54,7 @@
       </v-form>
       <v-card-actions justify="end" align="end">
         <template v-if="this.$auth.loggedIn">
-          <v-btn large block color="secondary" :disabled="referrals.length < 1"  @click.stop="refer">Refer</v-btn>
+          <v-btn large block color="secondary"  @click.stop="refer">Refer</v-btn>
         </template>
         <template v-if="!this.$auth.loggedIn">
           <p>You need to be logged in to refer someone</p>

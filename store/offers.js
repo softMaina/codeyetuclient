@@ -131,10 +131,15 @@ export const actions = {
 
   async fetchCategoryBrands({commit, dispatch},id) {
     let url = '/api/categories/brands/'+id;
+    console.log(id);
     commit({
       type: 'setBrandsLoading'
     })
     await this.$axios.get(url).then((res) => {
+      commit({
+        type: 'setBrands',
+        brands: []
+      })
       commit({
         type: 'setBrands',
         brands: res.data["results"]
@@ -142,6 +147,7 @@ export const actions = {
       commit({
         type: 'setBrandsLoading'
       })
+      console.log(res.data['results'])
     })
   },
 
