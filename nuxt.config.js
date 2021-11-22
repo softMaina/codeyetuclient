@@ -53,8 +53,12 @@ export default {
     '@nuxt/typescript-build',
     '@nuxtjs/google-fonts',
     '@nuxtjs/moment',
+    '@nuxtjs/google-analytics'
   ],
-
+  googleAnalytics: {
+    // Options
+    id: 'UA-213464648-1'
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
